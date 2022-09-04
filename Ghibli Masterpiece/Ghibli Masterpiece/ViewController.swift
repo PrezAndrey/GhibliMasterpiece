@@ -9,22 +9,53 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var films: [Film]? = nil
     let networkDataFetcher = NetworkDataFetcher()
     let urlString = "https://ghibliapi.herokuapp.com/films"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func parseJSON(_ sender: Any) {
         networkDataFetcher.fetchData(urlString: urlString) { (result) in
             guard let result = result else { return }
-            print(result)
+            self.films = result
+            print(self.films)
+            self.tableView.reloadData()
         }
     }
+}
+
+extension ViewController: UITableViewDelegate {
     
+}
 
-
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        films?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! FilmTableViewCell
+        
+        guard let currentFilm = films?[indexPath.row] else { return cell }
+        
+        cell.filmName.text = currentFilm.title
+        cell.directorLable.text = currentFilm.director
+        
+        
+        guard let imageString = currentFilm.image,
+            let imageUrl = URL(string: imageString) else { return cell }
+        
+        if let imageData = try? Data(contentsOf: imageUrl) {
+            cell.filmImage.image = UIImage(data: imageData)
+        }
+        
+        
+        
+        return cell
+    }
+    
 }
 
