@@ -27,7 +27,9 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -52,6 +54,7 @@ extension ViewController: UITableViewDataSource {
             cell.filmImage.image = UIImage(data: imageData)
         }
         
+    
         
         
         return cell
