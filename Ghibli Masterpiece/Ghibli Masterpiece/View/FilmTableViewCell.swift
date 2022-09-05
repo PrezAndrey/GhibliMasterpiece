@@ -11,6 +11,7 @@ class FilmTableViewCell: UITableViewCell {
 
     
     
+    @IBOutlet weak var originalName: UILabel!
     @IBOutlet weak var filmName: UILabel!
     @IBOutlet weak var directorLable: UILabel!
     @IBOutlet weak var filmImage: UIImageView!

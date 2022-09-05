@@ -27,6 +27,11 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "details", sender: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
@@ -45,6 +50,7 @@ extension ViewController: UITableViewDataSource {
         
         cell.filmName.text = currentFilm.title
         cell.directorLable.text = currentFilm.director
+        cell.originalName.text = currentFilm.original_title
         
         
         guard let imageString = currentFilm.image,
@@ -53,10 +59,7 @@ extension ViewController: UITableViewDataSource {
         if let imageData = try? Data(contentsOf: imageUrl) {
             cell.filmImage.image = UIImage(data: imageData)
         }
-        
-    
-        
-        
+
         return cell
     }
     
