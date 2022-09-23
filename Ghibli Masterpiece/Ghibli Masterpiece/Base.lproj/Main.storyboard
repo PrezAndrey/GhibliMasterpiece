@@ -205,11 +205,22 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="HWP-sK-yzl" firstAttribute="top" secondItem="KtG-nU-KNL" secondAttribute="top" id="Ksm-yz-Se1"/>
+                                            <constraint firstItem="f9x-KD-JGR" firstAttribute="top" secondItem="HWP-sK-yzl" secondAttribute="bottom" constant="30" id="QSq-Ob-5r6"/>
+                                            <constraint firstAttribute="trailing" secondItem="f9x-KD-JGR" secondAttribute="trailing" id="Ufz-HO-iYp"/>
+                                            <constraint firstItem="HWP-sK-yzl" firstAttribute="leading" secondItem="KtG-nU-KNL" secondAttribute="leading" id="WTz-3o-c99"/>
+                                            <constraint firstAttribute="trailing" secondItem="HWP-sK-yzl" secondAttribute="trailing" id="g7Z-2y-Il9"/>
+                                            <constraint firstItem="f9x-KD-JGR" firstAttribute="leading" secondItem="KtG-nU-KNL" secondAttribute="leading" id="rvd-8P-tWB"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="KtG-nU-KNL" firstAttribute="top" secondItem="UfH-cU-e7J" secondAttribute="top" constant="34" id="7BQ-XW-fNP"/>
                                     <constraint firstItem="KtG-nU-KNL" firstAttribute="leading" secondItem="UfH-cU-e7J" secondAttribute="leading" constant="8" id="Qqv-s7-cnY"/>
                                     <constraint firstItem="KtG-nU-KNL" firstAttribute="top" secondItem="UfH-cU-e7J" secondAttribute="top" constant="34" id="Tat-2V-zej"/>
+                                    <constraint firstItem="UfH-cU-e7J" firstAttribute="trailing" secondItem="KtG-nU-KNL" secondAttribute="trailing" constant="8" id="vVw-FD-rLc"/>
+                                    <constraint firstItem="KtG-nU-KNL" firstAttribute="leading" secondItem="UfH-cU-e7J" secondAttribute="leading" constant="8" id="yR4-08-eS5"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="ZNh-vO-9BO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="UfH-cU-e7J"/>
@@ -220,6 +231,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="oHz-D4-Qv5"/>
                     <size key="freeformSize" width="414" height="2000"/>
+                    <connections>
+                        <outlet property="descriptionLable" destination="f9x-KD-JGR" id="2o8-lB-5tu"/>
+                        <outlet property="directorLable" destination="ktH-rL-K6S" id="bAj-7C-Ss3"/>
+                        <outlet property="imageView" destination="HWP-sK-yzl" id="yQJ-k2-mIx"/>
+                        <outlet property="producerLable" destination="3O1-A5-UeG" id="GB7-Kh-hNE"/>
+                        <outlet property="releaseDate" destination="XKa-Zh-a8G" id="hcz-vT-ogK"/>
+                        <outlet property="runningTime" destination="pQH-LM-wST" id="64O-gt-xcI"/>
+                        <outlet property="scrollView" destination="clK-Ed-y5z" id="qVo-RY-R3l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l73-Dy-tb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

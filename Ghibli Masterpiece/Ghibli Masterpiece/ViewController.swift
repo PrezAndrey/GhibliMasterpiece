@@ -24,12 +24,25 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "details" {
+            if let detailVC = segue.destination as? DetailViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    guard let currentFilm = films?[indexPath.row] else { return }
+                    detailVC.film = currentFilm
+                }
+            }
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "details", sender: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
