@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var directorLable: UILabel!
     @IBOutlet weak var producerLable: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
-    @IBOutlet weak var runningTime: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
             directorLable.text = film.director
             producerLable.text = film.producer
             releaseDate.text = film.release_date
-            runningTime.text = film.runnung_time
+
             navigationItem.title = film.title
         }
     }
