@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
         configureUI(film)
     }
     
+    // Configuration functions
     func configureUI(_ film: Film?) {
         if let film = film {
             configureImage(film.movie_banner)
@@ -39,7 +40,6 @@ class DetailViewController: UIViewController {
     }
     
     func configureImage(_ str: String?) {
-        
         guard let str = str,
               let url = URL(string: str)
         else { return }
@@ -48,9 +48,4 @@ class DetailViewController: UIViewController {
             imageView.image = UIImage(data: data)
         }
     }
-    
-    
-        
-        
-    
 }
