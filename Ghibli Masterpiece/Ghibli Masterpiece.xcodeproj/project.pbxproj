@@ -15,7 +15,7 @@
 		490A14DF28C27E8E00AE34CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490A14DD28C27E8E00AE34CE /* LaunchScreen.storyboard */; };
 		490A14E828C28BD500AE34CE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14E728C28BD500AE34CE /* NetworkService.swift */; };
 		490A14EA28C28E0B00AE34CE /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14E928C28E0B00AE34CE /* NetworkDataFetcher.swift */; };
-		490A14ED28C28EE500AE34CE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14EC28C28EE500AE34CE /* SearchResponse.swift */; };
+		490A14ED28C28EE500AE34CE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14EC28C28EE500AE34CE /* Response.swift */; };
 		490A14F028C50F2000AE34CE /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14EF28C50F2000AE34CE /* FilmTableViewCell.swift */; };
 		490A14F228C688AB00AE34CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14F128C688AB00AE34CE /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		490A14E028C27E8E00AE34CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		490A14E728C28BD500AE34CE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		490A14E928C28E0B00AE34CE /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
-		490A14EC28C28EE500AE34CE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		490A14EC28C28EE500AE34CE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		490A14EF28C50F2000AE34CE /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		490A14F128C688AB00AE34CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +93,7 @@
 		490A14EB28C28ED900AE34CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				490A14EC28C28EE500AE34CE /* SearchResponse.swift */,
+				490A14EC28C28EE500AE34CE /* Response.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				490A14E828C28BD500AE34CE /* NetworkService.swift in Sources */,
 				490A14D528C27E8B00AE34CE /* SceneDelegate.swift in Sources */,
 				490A14EA28C28E0B00AE34CE /* NetworkDataFetcher.swift in Sources */,
-				490A14ED28C28EE500AE34CE /* SearchResponse.swift in Sources */,
+				490A14ED28C28EE500AE34CE /* Response.swift in Sources */,
 				490A14F228C688AB00AE34CE /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

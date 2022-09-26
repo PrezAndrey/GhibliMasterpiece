@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var film: Film?
+    let networkDataFetcher = NetworkDataFetcher()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -48,4 +49,11 @@ class DetailViewController: UIViewController {
             imageView.image = UIImage(data: data)
         }
     }
+    
+//    func configureButtons(_ str: String?) {
+//        guard let str = str else { return }
+//        networkDataFetcher.fetchFilmData(urlString: str) { (species) in
+//            <#code#>
+//        }
+//    }
 }

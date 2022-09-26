@@ -10,8 +10,9 @@ import Foundation
 class NetworkDataFetcher {
     
     let networkService = NetworkService()
+    
     // dataFetcher
-    func fetchData(urlString: String, response: @escaping ([Film]?) -> Void) {
+    func fetchFilmData(urlString: String, response: @escaping ([Any]?) -> Void) {
         networkService.request(urlString: urlString) { (result) in
             switch result {
             case .success(let data):
