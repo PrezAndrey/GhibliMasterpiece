@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkDataFetcher.fetchFilmData(urlString: urlString) { (result) in
+        networkDataFetcher.fetchData(urlString: urlString) { (result) in
             guard let result = result as? [Film] else { return }
             self.films = result
             print(self.films)
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     
 }
 
+// MARK: TABLE VIEW CONFIGURATION
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

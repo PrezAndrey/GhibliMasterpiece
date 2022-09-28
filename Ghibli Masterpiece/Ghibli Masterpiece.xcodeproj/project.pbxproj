@@ -18,6 +18,7 @@
 		490A14ED28C28EE500AE34CE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14EC28C28EE500AE34CE /* Response.swift */; };
 		490A14F028C50F2000AE34CE /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14EF28C50F2000AE34CE /* FilmTableViewCell.swift */; };
 		490A14F228C688AB00AE34CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A14F128C688AB00AE34CE /* DetailViewController.swift */; };
+		55188EAE28E330E80090AB11 /* PeopleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55188EAD28E330E80090AB11 /* PeopleCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		490A14EC28C28EE500AE34CE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		490A14EF28C50F2000AE34CE /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		490A14F128C688AB00AE34CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		55188EAD28E330E80090AB11 /* PeopleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				490A14EF28C50F2000AE34CE /* FilmTableViewCell.swift */,
+				55188EAD28E330E80090AB11 /* PeopleCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				490A14EA28C28E0B00AE34CE /* NetworkDataFetcher.swift in Sources */,
 				490A14ED28C28EE500AE34CE /* Response.swift in Sources */,
 				490A14F228C688AB00AE34CE /* DetailViewController.swift in Sources */,
+				55188EAE28E330E80090AB11 /* PeopleCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
