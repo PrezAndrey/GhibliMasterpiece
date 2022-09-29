@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var producerLable: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
 
+    @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     @IBOutlet weak var speciesCollectionView: UICollectionView!
     
@@ -67,15 +68,14 @@ class DetailViewController: UIViewController {
                     self.people = people
                     self.peopleCollectionView.reloadData()
                 }
-            }
-            networkDataFetcher.fetchPeopleData(urlString: i) { (people) in
-                guard let people = people as? People else { return }
-                self.people.append(people)
-                self.peopleCollectionView.reloadData()
-                
+            } else {
+                networkDataFetcher.fetchPeopleData(urlString: i) { (people) in
+                    guard let people = people as? People else { return }
+                    self.people.append(people)
+                    self.peopleCollectionView.reloadData()
+                }
             }
         }
-        
     }
     
     func fillUpSpeciesList(urls: [String]) {
