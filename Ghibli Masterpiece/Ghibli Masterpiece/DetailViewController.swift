@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     var film: Film?
     let networkDataFetcher = NetworkDataFetcher()
     var people = [People]()
+    var species = [Species]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -23,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releaseDate: UILabel!
 
     @IBOutlet weak var peopleCollectionView: UICollectionView!
+    @IBOutlet weak var speciesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,8 @@ class DetailViewController: UIViewController {
     // Configuration functions
     func configureUI(_ film: Film?) {
         if let film = film {
+            print("-------------------------------People url: \(film.species)")
+            fillUpSpeciesList(urls: film.species!)
             fillUpPeopleList(urls: film.people!)
             configureImage(film.movie_banner)
             descriptionLable.text = film.description
@@ -55,13 +59,32 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpPeopleList(urls: [String]) {
-        print("People url: \(urls)")
+        
         for i in urls {
+            if i.hasSuffix("people/"){
+                networkDataFetcher.fetchPeopleArray(urlString: i) { (people) in
+                    guard let people = people else { return }
+                    self.people = people
+                    self.peopleCollectionView.reloadData()
+                }
+            }
             networkDataFetcher.fetchPeopleData(urlString: i) { (people) in
                 guard let people = people as? People else { return }
                 self.people.append(people)
                 self.peopleCollectionView.reloadData()
                 
+            }
+        }
+        
+    }
+    
+    func fillUpSpeciesList(urls: [String]) {
+        print("-------------------------------Species url: \(urls)")
+        for i in urls {
+            networkDataFetcher.fetchSpeciesData(urlString: i) { (species) in
+                guard let species = species as? Species else { return }
+                self.species.append(species)
+                self.speciesCollectionView.reloadData()
             }
         }
         
@@ -73,15 +96,34 @@ extension DetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return people.count
+        switch collectionView {
+        case peopleCollectionView:
+            return people.count
+        case speciesCollectionView:
+            return species.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "peopleCell", for: indexPath) as! PeopleCollectionViewCell
         
-        cell.peopleLabel.text = people[indexPath.row].name
+        switch collectionView {
+        case peopleCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "peopleCell", for: indexPath) as! PeopleCollectionViewCell
+            
+            cell.peopleLabel.text = people[indexPath.row].name
+            return cell
+        case speciesCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "speciesCell", for: indexPath) as! SpeciesCollectionViewCell
+            
+            cell.speciesLable.text = species[indexPath.row].name
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
         
-        return cell
+        
     }
     
     

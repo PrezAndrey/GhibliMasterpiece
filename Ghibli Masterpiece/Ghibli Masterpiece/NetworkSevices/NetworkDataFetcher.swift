@@ -49,4 +49,42 @@ class NetworkDataFetcher {
             }
         }
     }
+    
+    func fetchPeopleArray(urlString: String, response: @escaping ([People]?) -> Void) {
+        networkService.request(urlString: urlString) { (result) in
+            switch result {
+            case .success(let data):
+                
+                do {
+                    let info = try JSONDecoder().decode([People].self, from: data)
+                    response(info)
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+                
+            case .failure(let error):
+                print("Error recieved requesting data: \(error.localizedDescription)")
+                response(nil)
+            }
+        }
+    }
+    
+    func fetchSpeciesData(urlString: String, response: @escaping (Species?) -> Void) {
+        networkService.request(urlString: urlString) { (result) in
+            switch result {
+            case .success(let data):
+                
+                do {
+                    let info = try JSONDecoder().decode(Species.self, from: data)
+                    response(info)
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+                
+            case .failure(let error):
+                print("Error recieved requesting data: \(error.localizedDescription)")
+                response(nil)
+            }
+        }
+    }
 }
