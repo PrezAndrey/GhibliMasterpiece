@@ -387,27 +387,12 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="People:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIb-Qa-UAb">
-                                                <rect key="frame" x="0.0" y="1309" width="57" height="20.5"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z0R-Oe-0n3">
-                                                <rect key="frame" x="0.0" y="1152" width="398" height="140"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="tIb-Qa-UAb" firstAttribute="leading" secondItem="eLq-QF-u9p" secondAttribute="leading" id="16u-6v-hxQ"/>
                                             <constraint firstItem="eLq-QF-u9p" firstAttribute="leading" secondItem="EFq-na-Gid" secondAttribute="leading" constant="8" id="7Th-t1-KXC"/>
                                             <constraint firstAttribute="trailing" secondItem="eLq-QF-u9p" secondAttribute="trailing" constant="8" id="UqY-RY-pW7"/>
                                             <constraint firstItem="eLq-QF-u9p" firstAttribute="top" secondItem="EFq-na-Gid" secondAttribute="top" constant="8" id="eto-Wh-QYY"/>
-                                            <constraint firstAttribute="bottom" secondItem="tIb-Qa-UAb" secondAttribute="bottom" constant="848.5" id="vit-ix-zTI"/>
                                         </constraints>
                                     </view>
                                 </subviews>

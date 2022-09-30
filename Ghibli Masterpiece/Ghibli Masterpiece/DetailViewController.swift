@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     let networkDataFetcher = NetworkDataFetcher()
     var people = [People]()
     var species = [Species]()
+    var locations = [Location]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -39,6 +40,7 @@ class DetailViewController: UIViewController {
             print("-------------------------------People url: \(film.species)")
             fillUpSpeciesList(urls: film.species!)
             fillUpPeopleList(urls: film.people!)
+            fillUpLocationList(urls: film.locations!)
             configureImage(film.movie_banner)
             descriptionLable.text = film.description
             directorLable.text = film.director
@@ -87,7 +89,25 @@ class DetailViewController: UIViewController {
                 self.speciesCollectionView.reloadData()
             }
         }
-        
+    }
+    
+    func fillUpLocationList(urls: [String]) {
+        print("-------------------------------Locations url: \(urls)")
+        for i in urls {
+            if i.hasSuffix("locations/") {
+                networkDataFetcher.fetchLocationArray(urlString: i) { (locations) in
+                    guard let locations = locations as? [Location] else { return }
+                    self.locations = locations
+                    self.locationsCollectionView.reloadData()
+                }
+            } else {
+                networkDataFetcher.fetchLocationData(urlString: i) { (locations) in
+                    guard let locations = locations as? Location else { return }
+                    self.locations.append(locations)
+                    self.locationsCollectionView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -101,6 +121,8 @@ extension DetailViewController: UICollectionViewDataSource {
             return people.count
         case speciesCollectionView:
             return species.count
+        case locationsCollectionView:
+            return locations.count
         default:
             return 0
         }
@@ -111,14 +133,19 @@ extension DetailViewController: UICollectionViewDataSource {
         switch collectionView {
         case peopleCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "peopleCell", for: indexPath) as! PeopleCollectionViewCell
-            
             cell.peopleLabel.text = people[indexPath.row].name
             return cell
+            
         case speciesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "speciesCell", for: indexPath) as! SpeciesCollectionViewCell
-            
             cell.speciesLable.text = species[indexPath.row].name
             return cell
+            
+        case locationsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! LocationCollectionViewCell
+            cell.locationLabel.text = locations[indexPath.row].name
+            return cell
+            
         default:
             return UICollectionViewCell()
         }

@@ -43,7 +43,7 @@ struct Location: Decodable {
     
     var id: String?
     var name: String?
-    var climat: String?
+    var climate: String?
     var terrain: String?
     var surface_water: String?
     var residents: [String]?
