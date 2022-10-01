@@ -131,4 +131,41 @@ class NetworkDataFetcher {
         }
     }
     
+    func fetchVehicleArray(urlString: String, response: @escaping ([Vehicle]?) -> Void) {
+        networkService.request(urlString: urlString) { (result) in
+            switch result {
+            case .success(let data):
+                
+                do {
+                    let info = try JSONDecoder().decode([Vehicle].self, from: data)
+                    response(info)
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+                
+            case .failure(let error):
+                print("Error recieved requesting data: \(error.localizedDescription)")
+                response(nil)
+            }
+        }
+    }
+    
+    func fetchVehicleData(urlString: String, response: @escaping (Vehicle?) -> Void) {
+        networkService.request(urlString: urlString) { (result) in
+            switch result {
+            case .success(let data):
+                
+                do {
+                    let info = try JSONDecoder().decode(Vehicle.self, from: data)
+                    response(info)
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+                
+            case .failure(let error):
+                print("Error recieved requesting data: \(error.localizedDescription)")
+                response(nil)
+            }
+        }
+    }
 }
