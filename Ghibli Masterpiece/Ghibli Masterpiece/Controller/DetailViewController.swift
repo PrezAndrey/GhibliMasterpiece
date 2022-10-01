@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     var people = [People]()
     var species = [Species]()
     var locations = [Location]()
+    var vehicles = [Vehicle]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -27,6 +28,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     @IBOutlet weak var speciesCollectionView: UICollectionView!
+    @IBOutlet weak var vehiclesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class DetailViewController: UIViewController {
             fillUpSpeciesList(urls: film.species!)
             fillUpPeopleList(urls: film.people!)
             fillUpLocationList(urls: film.locations!)
+            fillUpVehicleList(urls: film.vehicles!)
             configureImage(film.movie_banner)
             descriptionLable.text = film.description
             directorLable.text = film.director
@@ -109,6 +112,27 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    func fillUpVehicleList(urls: [String]) {
+        print("-------------------------------Vehicles url: \(urls)")
+        for i in urls {
+            if i.hasSuffix("vehicles/") {
+                networkDataFetcher.fetchVehicleArray(urlString: i) { (vehicles) in
+                    guard let vehicles = vehicles as? [Vehicle] else { return }
+                    self.vehicles = vehicles
+                    self.vehiclesCollectionView.reloadData()
+                }
+            } else {
+                networkDataFetcher.fetchVehicleData(urlString: i) { (vehicles) in
+                    guard let vehicles = vehicles as? Vehicle else { return }
+                    self.vehicles.append(vehicles)
+                    self.vehiclesCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
 }
 
 
@@ -123,6 +147,8 @@ extension DetailViewController: UICollectionViewDataSource {
             return species.count
         case locationsCollectionView:
             return locations.count
+        case vehiclesCollectionView:
+            return vehicles.count
         default:
             return 0
         }
@@ -135,25 +161,22 @@ extension DetailViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "peopleCell", for: indexPath) as! PeopleCollectionViewCell
             cell.peopleLabel.text = people[indexPath.row].name
             return cell
-            
         case speciesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "speciesCell", for: indexPath) as! SpeciesCollectionViewCell
             cell.speciesLable.text = species[indexPath.row].name
             return cell
-            
         case locationsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! LocationCollectionViewCell
             cell.locationLabel.text = locations[indexPath.row].name
             return cell
-            
+        case vehiclesCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "vehicleCell", for: indexPath) as! VehicleCollectionViewCell
+            cell.vehicleName.text = vehicles[indexPath.row].name
+            return cell
         default:
             return UICollectionViewCell()
         }
-        
-        
     }
-    
-    
 }
 
 extension DetailViewController: UICollectionViewDelegate {
