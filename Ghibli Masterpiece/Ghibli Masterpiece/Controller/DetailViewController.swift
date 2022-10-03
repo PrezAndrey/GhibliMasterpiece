@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum SegueID: String {
+    case people = "peopleSegue"
+    case species = "speciesSegue"
+    case film = "filmSegue"
+    case location = "locationSegue"
+    case vehicle = "vehicleSegue"
+}
+
+
 class DetailViewController: UIViewController {
     
     var film: Film?
@@ -15,6 +24,9 @@ class DetailViewController: UIViewController {
     var species = [Species]()
     var locations = [Location]()
     var vehicles = [Vehicle]()
+    var films = [Film]()
+    
+    var currentIndexPath = 0
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -40,7 +52,7 @@ class DetailViewController: UIViewController {
     // Configuration functions
     func configureUI(_ film: Film?) {
         if let film = film {
-            print("-------------------------------People url: \(film.species)")
+            
             fillUpSpeciesList(urls: film.species!)
             fillUpPeopleList(urls: film.people!)
             fillUpLocationList(urls: film.locations!)
@@ -85,7 +97,6 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpSpeciesList(urls: [String]) {
-        print("-------------------------------Species url: \(urls)")
         for i in urls {
             networkDataFetcher.fetchSpeciesData(urlString: i) { (species) in
                 guard let species = species as? Species else { return }
@@ -96,7 +107,6 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpLocationList(urls: [String]) {
-        print("-------------------------------Locations url: \(urls)")
         for i in urls {
             if i.hasSuffix("locations/") {
                 networkDataFetcher.fetchLocationArray(urlString: i) { (locations) in
@@ -115,7 +125,6 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpVehicleList(urls: [String]) {
-        print("-------------------------------Vehicles url: \(urls)")
         for i in urls {
             if i.hasSuffix("vehicles/") {
                 networkDataFetcher.fetchVehicleArray(urlString: i) { (vehicles) in
@@ -133,7 +142,26 @@ class DetailViewController: UIViewController {
         }
     }
     
-    
+// MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secondDetailVC = segue.destination as? SecondDetailViewController {
+            
+            switch segue.identifier {
+            case "peopleSegue":
+                secondDetailVC.peopleData = people[currentIndexPath]
+            case "locationSegue":
+                secondDetailVC.locationData = locations[currentIndexPath]
+            case "filmSegue":
+                secondDetailVC.filmData = films[currentIndexPath]
+            case "speciesSegue":
+                secondDetailVC.speciesData = species[currentIndexPath]
+            case "vehicleSegue":
+                secondDetailVC.vehicleData = vehicles[currentIndexPath]
+            default:
+                print("Segue ID error")
+            }
+        }
+    }
 }
 
 
@@ -181,5 +209,21 @@ extension DetailViewController: UICollectionViewDataSource {
 }
 
 extension DetailViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentIndexPath = indexPath.row
+        switch collectionView {
+        case peopleCollectionView:
+            performSegue(withIdentifier: "peopleSegue", sender: self)
+        case filmsCollectionView:
+            performSegue(withIdentifier: "filmSegue", sender: self)
+        case locationsCollectionView:
+            performSegue(withIdentifier: "locationSegue", sender: self)
+        case speciesCollectionView:
+            performSegue(withIdentifier: "speciesSegue", sender: self)
+        case vehiclesCollectionView:
+            performSegue(withIdentifier: "vehicleSegue", sender: self)
+        default:
+            print("Error")
+        }
+    }
 }
