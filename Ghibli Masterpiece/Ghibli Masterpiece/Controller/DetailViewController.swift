@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
     @IBOutlet weak var speciesCollectionView: UICollectionView!
+    @IBOutlet weak var filmsCollectionView: UICollectionView!
     @IBOutlet weak var vehiclesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
