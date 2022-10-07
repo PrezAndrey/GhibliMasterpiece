@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1612"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-na-Gid" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1615"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1612"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-QF-u9p" userLabel="MainStackView">
                                                 <rect key="frame" x="8" y="8" width="398" height="1575.5"/>
@@ -251,7 +251,6 @@
                                                                         <size key="customSize" width="174" height="40"/>
                                                                         <connections>
                                                                             <outlet property="peopleLabel" destination="0Zb-38-PQH" id="PZY-b9-Icc"/>
-                                                                            <segue destination="qcG-HM-Oq4" kind="show" identifier="peopleSegue" id="R2d-aA-LbI"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -317,7 +316,6 @@
                                                                         <size key="customSize" width="174" height="40"/>
                                                                         <connections>
                                                                             <outlet property="speciesLable" destination="Nf5-jU-pLY" id="iic-4x-m9E"/>
-                                                                            <segue destination="qcG-HM-Oq4" kind="showDetail" identifier="speciesSegue" id="1NT-tn-VlF"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -377,7 +375,6 @@
                                                                         <size key="customSize" width="174" height="40"/>
                                                                         <connections>
                                                                             <outlet property="filmName" destination="MWr-ym-peh" id="Nw0-WD-VEO"/>
-                                                                            <segue destination="qcG-HM-Oq4" kind="show" identifier="filmSegue" id="C13-ar-1Ft"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -437,7 +434,6 @@
                                                                         <size key="customSize" width="174" height="40"/>
                                                                         <connections>
                                                                             <outlet property="locationLabel" destination="r72-JJ-hQf" id="2ug-9o-uBO"/>
-                                                                            <segue destination="qcG-HM-Oq4" kind="show" identifier="locationSegue" id="lFC-vy-1TI"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -497,7 +493,6 @@
                                                                         <size key="customSize" width="174" height="40"/>
                                                                         <connections>
                                                                             <outlet property="vehicleName" destination="C1R-SG-Jrc" id="TDA-J2-5vP"/>
-                                                                            <segue destination="qcG-HM-Oq4" kind="show" identifier="vehicleSegue" id="6G3-Ik-1Yx"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -549,20 +544,25 @@
                     <connections>
                         <outlet property="descriptionLable" destination="191-WP-uYS" id="VC9-Ai-tiM"/>
                         <outlet property="directorLable" destination="zSe-Rn-Dh0" id="Wqq-aB-Ba4"/>
+                        <outlet property="filmBlock" destination="lyh-Xi-siT" id="ecM-lf-TiL"/>
                         <outlet property="filmsCollectionView" destination="E4L-bF-u2X" id="Dvi-HD-mCT"/>
                         <outlet property="imageView" destination="ynH-QT-qrL" id="74F-Fu-zfl"/>
+                        <outlet property="locationsBlock" destination="Xqk-X6-RwJ" id="rbh-Iy-SB3"/>
                         <outlet property="locationsCollectionView" destination="inP-ob-3nd" id="QbW-sU-P9G"/>
+                        <outlet property="peopleBlock" destination="V4U-57-GXF" id="aQg-KB-3mI"/>
                         <outlet property="peopleCollectionView" destination="321-0E-3Ci" id="dLF-Mi-ACd"/>
                         <outlet property="producerLable" destination="UpP-Ov-cx9" id="84d-Ak-Azb"/>
                         <outlet property="releaseDate" destination="ciL-g9-fhv" id="Yov-Hg-Mbe"/>
                         <outlet property="scrollView" destination="9jm-3q-vyf" id="QbZ-Ir-jTr"/>
+                        <outlet property="speciesBlock" destination="Iwa-kV-st2" id="eHy-J8-N9k"/>
                         <outlet property="speciesCollectionView" destination="mu8-xT-Tj6" id="wty-ic-De6"/>
+                        <outlet property="vehicleBlock" destination="5le-zW-24e" id="clr-zV-fzg"/>
                         <outlet property="vehiclesCollectionView" destination="7I8-uY-6bU" id="QnY-4e-F4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l73-Dy-tb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095.6521739130435" y="-31.473214285714285"/>
+            <point key="canvasLocation" x="2206" y="-7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="alm-AV-hxT">
@@ -692,458 +692,7 @@
             </objects>
             <point key="canvasLocation" x="33" y="-40"/>
         </scene>
-        <!--Second Detail View Controller-->
-        <scene sceneID="CbH-rS-Kf0">
-            <objects>
-                <viewController id="qcG-HM-Oq4" customClass="SecondDetailViewController" customModule="Ghibli_Masterpiece" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h1S-fr-d0v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1700"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-NC-yFf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1612"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waO-4A-t8D" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1612"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-NC-AHa" userLabel="MainStackView">
-                                                <rect key="frame" x="8" y="8" width="398" height="1575.5"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-d2-xxp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="249"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="249" id="Ucl-DN-lJc"/>
-                                                            <constraint firstAttribute="width" constant="398" id="eQt-D0-HEa"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ezG-L2-z6D" userLabel="DirectorStackView">
-                                                        <rect key="frame" x="0.0" y="279" width="398" height="54.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRt-U4-DLq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DirectorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9O-Yf-f75">
-                                                                <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-fy-CYY" userLabel="ProducerStackView">
-                                                        <rect key="frame" x="0.0" y="363.5" width="398" height="54.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-hn-vKw">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProducerLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFO-SJ-zoK">
-                                                                <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kcr-bd-PfR" userLabel="ReleaseDateStackView">
-                                                        <rect key="frame" x="0.0" y="448" width="398" height="54.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHG-66-9mi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3H-VU-XBO" userLabel="Release Date Lable">
-                                                                <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RLC-fd-PI8" userLabel="DescriptionStackView">
-                                                        <rect key="frame" x="0.0" y="532.5" width="398" height="54.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8d-RN-yGx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMS-Ec-jUR">
-                                                                <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dUN-fa-Zd1" userLabel="People Stack View">
-                                                        <rect key="frame" x="0.0" y="617" width="398" height="168.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BA-I0-WMb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sUv-A5-fJy">
-                                                                <rect key="frame" x="0.0" y="28.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="398" id="UM3-d3-Hpc"/>
-                                                                    <constraint firstAttribute="height" constant="140" id="WfW-HB-ryG"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="acK-ES-MXi">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="peopleCell" id="S2U-EH-akM" customClass="PeopleCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="jsL-sm-9SN">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-VP-53U">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" red="0.1706226766" green="0.17323726419999999" blue="0.92707234620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="ZEf-VP-53U" firstAttribute="top" secondItem="jsL-sm-9SN" secondAttribute="top" id="1hd-JP-MvE"/>
-                                                                                <constraint firstItem="ZEf-VP-53U" firstAttribute="leading" secondItem="jsL-sm-9SN" secondAttribute="leading" id="DJw-A6-Fb2"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="ZEf-VP-53U" secondAttribute="bottom" id="Y5J-DN-Gag"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="ZEf-VP-53U" secondAttribute="trailing" id="aln-9N-o2g"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="peopleLabel" destination="ZEf-VP-53U" id="nfv-Ag-LpN"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="qcG-HM-Oq4" id="EZR-vb-9J1"/>
-                                                                    <outlet property="delegate" destination="qcG-HM-Oq4" id="1QR-gX-doT"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="sUv-A5-fJy" secondAttribute="bottom" id="cJb-w7-ANA"/>
-                                                            <constraint firstAttribute="trailing" secondItem="sUv-A5-fJy" secondAttribute="trailing" id="gRK-dG-t6k"/>
-                                                            <constraint firstItem="sUv-A5-fJy" firstAttribute="leading" secondItem="dUN-fa-Zd1" secondAttribute="leading" id="p5w-vF-axo"/>
-                                                            <constraint firstItem="sUv-A5-fJy" firstAttribute="top" secondItem="7BA-I0-WMb" secondAttribute="bottom" constant="8" symbolic="YES" id="tWx-SA-adD"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="OAC-Bu-lHo" userLabel="Species Stack View">
-                                                        <rect key="frame" x="0.0" y="815.5" width="398" height="167.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNM-gn-p4s">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LFO-EM-ygg" userLabel="Species Collection View">
-                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="398" id="BjM-KM-bzH"/>
-                                                                    <constraint firstAttribute="height" constant="140" id="bwl-LL-fIV"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="ABW-hJ-ekV">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="speciesCell" id="0Mm-jh-5sW" customClass="SpeciesCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Dtm-kD-r2H">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rws-hK-UWB">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="rws-hK-UWB" firstAttribute="top" secondItem="Dtm-kD-r2H" secondAttribute="top" id="1i5-Ng-yxG"/>
-                                                                                <constraint firstItem="rws-hK-UWB" firstAttribute="leading" secondItem="Dtm-kD-r2H" secondAttribute="leading" id="1wt-in-TIT"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="rws-hK-UWB" secondAttribute="bottom" id="7yP-0B-lXO"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="rws-hK-UWB" secondAttribute="trailing" id="F6H-0O-Zzi"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="speciesLable" destination="rws-hK-UWB" id="ejc-6X-VSK"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="qcG-HM-Oq4" id="Uad-h0-16q"/>
-                                                                    <outlet property="delegate" destination="qcG-HM-Oq4" id="G68-iO-xS1"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gIN-ab-T0b" userLabel="Locations Stack View">
-                                                        <rect key="frame" x="0.0" y="1013" width="398" height="167.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZN-lt-JPy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uk2-Sk-mXE" userLabel="Location Collection View">
-                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="398" id="YME-T6-mm4"/>
-                                                                    <constraint firstAttribute="height" constant="140" id="uha-jW-EkC"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="7Be-jI-oFt">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="fPE-C3-fGM" userLabel="locationCell" customClass="LocationCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="H8N-D7-XVZ">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-QW-SOL">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemMintColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="8gQ-QW-SOL" firstAttribute="leading" secondItem="H8N-D7-XVZ" secondAttribute="leading" id="PBm-WX-1Uf"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="8gQ-QW-SOL" secondAttribute="trailing" id="TPr-XB-oas"/>
-                                                                                <constraint firstItem="8gQ-QW-SOL" firstAttribute="top" secondItem="H8N-D7-XVZ" secondAttribute="top" id="Tem-1K-peu"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="8gQ-QW-SOL" secondAttribute="bottom" id="XYC-5U-n6t"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="locationLabel" destination="8gQ-QW-SOL" id="eDC-BS-DXm"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="qcG-HM-Oq4" id="NFc-Rb-MNq"/>
-                                                                    <outlet property="delegate" destination="qcG-HM-Oq4" id="OgU-Rb-aWa"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8ij-50-cfR" userLabel="Vehicles Stack View">
-                                                        <rect key="frame" x="0.0" y="1210.5" width="398" height="167.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicles:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vp-H7-vTH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t6Z-Wc-Pkx" userLabel="Vehicles Collection View">
-                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="398" id="6Wu-ig-DIk"/>
-                                                                    <constraint firstAttribute="height" constant="140" id="DPt-OJ-pW2"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="eb4-CS-oxw">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="vehicleCell" id="zPa-Qh-3Iw" userLabel="vehicleCell" customClass="VehicleCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="q9X-Ww-ukf">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQg-g7-phe">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemRedColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="aQg-g7-phe" firstAttribute="leading" secondItem="q9X-Ww-ukf" secondAttribute="leading" id="5fx-In-94f"/>
-                                                                                <constraint firstItem="aQg-g7-phe" firstAttribute="top" secondItem="q9X-Ww-ukf" secondAttribute="top" id="MAl-nH-eXP"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="aQg-g7-phe" secondAttribute="bottom" id="Xxk-D7-xDd"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="aQg-g7-phe" secondAttribute="trailing" id="eeD-D9-3mA"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="vehicleName" destination="aQg-g7-phe" id="TSX-Jv-A1e"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="qcG-HM-Oq4" id="gUM-kJ-Fg9"/>
-                                                                    <outlet property="delegate" destination="qcG-HM-Oq4" id="JhV-aY-SWI"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-GJ-H93" userLabel="Films Stack View">
-                                                        <rect key="frame" x="0.0" y="1408" width="398" height="167.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Films:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGR-X0-FJW" userLabel="Films:">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZ2-m4-UyL" userLabel="Films Collection View">
-                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="140" id="Jr9-zx-otV"/>
-                                                                    <constraint firstAttribute="width" constant="398" id="Xbw-ls-OJZ"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="2Gq-3T-sSo">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="vehicleCell" id="IKW-HB-9fd" userLabel="filmsCell" customClass="FilmsCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="B5I-di-Okh">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89Y-A6-p2Q" userLabel="Films Name">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemRedColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="bottom" secondItem="89Y-A6-p2Q" secondAttribute="bottom" id="9Uj-VY-edE"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="89Y-A6-p2Q" secondAttribute="trailing" id="Kk1-ON-gVT"/>
-                                                                                <constraint firstItem="89Y-A6-p2Q" firstAttribute="top" secondItem="B5I-di-Okh" secondAttribute="top" id="aRf-hb-vCq"/>
-                                                                                <constraint firstItem="89Y-A6-p2Q" firstAttribute="leading" secondItem="B5I-di-Okh" secondAttribute="leading" id="kq5-5x-G1O"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="filmName" destination="89Y-A6-p2Q" id="f7w-Um-WKh"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="amc-3m-cXV" id="g1t-nQ-TEm"/>
-                                                                    <outlet property="delegate" destination="amc-3m-cXV" id="sUc-Cl-QSI"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="cFP-NC-AHa" firstAttribute="leading" secondItem="waO-4A-t8D" secondAttribute="leading" constant="8" id="05M-Wf-R1u"/>
-                                            <constraint firstItem="cFP-NC-AHa" firstAttribute="top" secondItem="waO-4A-t8D" secondAttribute="top" constant="8" id="0Tp-Ut-cuX"/>
-                                            <constraint firstAttribute="trailing" secondItem="cFP-NC-AHa" secondAttribute="trailing" constant="8" id="dEw-5Y-2C8"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1706226766" green="0.17323726419999999" blue="0.92707234620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="width" secondItem="SNf-a6-zoq" secondAttribute="width" id="2jq-0m-ZOd"/>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="height" secondItem="SNf-a6-zoq" secondAttribute="height" priority="250" id="4z2-TU-8Go"/>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="width" secondItem="0tg-NC-yFf" secondAttribute="width" id="6FR-cB-baJ"/>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="top" secondItem="0tg-NC-yFf" secondAttribute="top" id="af1-U6-dgH"/>
-                                    <constraint firstAttribute="bottom" secondItem="waO-4A-t8D" secondAttribute="bottom" id="loT-7v-MjD"/>
-                                    <constraint firstAttribute="trailing" secondItem="waO-4A-t8D" secondAttribute="trailing" id="vHi-Cq-vZD"/>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="bottom" secondItem="SNf-a6-zoq" secondAttribute="bottom" id="xAV-Vd-z6S"/>
-                                    <constraint firstItem="waO-4A-t8D" firstAttribute="leading" secondItem="0tg-NC-yFf" secondAttribute="leading" id="yE5-ad-mYc"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="hIZ-vz-2Xn"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="SNf-a6-zoq"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wkp-Ed-Xx8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="0tg-NC-yFf" firstAttribute="leading" secondItem="wkp-Ed-Xx8" secondAttribute="leading" id="AFW-va-BYD"/>
-                            <constraint firstItem="0tg-NC-yFf" firstAttribute="top" secondItem="wkp-Ed-Xx8" secondAttribute="top" id="KMs-Bf-oNf"/>
-                            <constraint firstItem="wkp-Ed-Xx8" firstAttribute="trailing" secondItem="0tg-NC-yFf" secondAttribute="trailing" id="ZAQ-37-bGI"/>
-                            <constraint firstItem="0tg-NC-yFf" firstAttribute="bottom" secondItem="wkp-Ed-Xx8" secondAttribute="bottom" constant="34" id="jGj-g9-4cH"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="TDL-Uf-Tin"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="1700"/>
-                    <connections>
-                        <outlet property="descriptionLable" destination="QMS-Ec-jUR" id="WQu-bN-Cue"/>
-                        <outlet property="directorLable" destination="y9O-Yf-f75" id="Psc-VF-sGe"/>
-                        <outlet property="imageView" destination="fPb-d2-xxp" id="AaZ-0S-jcR"/>
-                        <outlet property="locationsCollectionView" destination="uk2-Sk-mXE" id="WZJ-yn-fCq"/>
-                        <outlet property="peopleCollectionView" destination="sUv-A5-fJy" id="UDy-Mg-0dG"/>
-                        <outlet property="producerLable" destination="DFO-SJ-zoK" id="Kza-Mm-pXz"/>
-                        <outlet property="releaseDate" destination="J3H-VU-XBO" id="9wK-9K-X3a"/>
-                        <outlet property="scrollView" destination="0tg-NC-yFf" id="p9c-4B-3DT"/>
-                        <outlet property="speciesCollectionView" destination="LFO-EM-ygg" id="Bvk-k3-4cA"/>
-                        <outlet property="vehiclesCollectionView" destination="t6Z-Wc-Pkx" id="fyj-YN-cpK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YIM-Pk-r5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3020" y="-31"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="C13-ar-1Ft"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum SegueID: String {
-    case people = "peopleSegue"
-    case species = "speciesSegue"
-    case film = "filmSegue"
-    case location = "locationSegue"
-    case vehicle = "vehicleSegue"
-}
-
 
 class DetailViewController: UIViewController {
     
@@ -25,6 +17,13 @@ class DetailViewController: UIViewController {
     var locations = [Location]()
     var vehicles = [Vehicle]()
     var films = [Film]()
+    
+    
+    @IBOutlet weak var vehicleBlock: UIStackView!
+    @IBOutlet weak var locationsBlock: UIStackView!
+    @IBOutlet weak var speciesBlock: UIStackView!
+    @IBOutlet weak var peopleBlock: UIStackView!
+    @IBOutlet weak var filmBlock: UIStackView!
     
     var currentIndexPath = 0
     
@@ -67,6 +66,21 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func configureWithPeople(_ people: People?) {
+        if let people = people {
+            
+            fillUpSpeciesList(url: people.species!)
+            fillUpFilmList(urls: people.films!)
+            
+            descriptionLable.text = people.gender
+            directorLable.text = people.age
+            producerLable.text = people.eye_color
+            releaseDate.text = people.hair_color
+
+            navigationItem.title = people.name
+        }
+    }
+    
     func configureImage(_ str: String?) {
         guard let str = str,
               let url = URL(string: str)
@@ -106,6 +120,24 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func fillUpSpeciesList(url: String) {
+        networkDataFetcher.fetchSpeciesData(urlString: url) { (species) in
+            guard let species = species as? Species else { return }
+            self.species.append(species)
+            self.speciesCollectionView.reloadData()
+        }
+    }
+    
+    func fillUpFilmList(urls: [String]) {
+        for i in urls {
+            networkDataFetcher.fetchData(urlString: i) { (films) in
+                guard let filmes = films as? Film else { return }
+                self.films.append(filmes)
+                self.speciesCollectionView.reloadData()
+            }
+        }
+    }
+    
     func fillUpLocationList(urls: [String]) {
         for i in urls {
             if i.hasSuffix("locations/") {
@@ -138,27 +170,6 @@ class DetailViewController: UIViewController {
                     self.vehicles.append(vehicles)
                     self.vehiclesCollectionView.reloadData()
                 }
-            }
-        }
-    }
-    
-// MARK: Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let secondDetailVC = segue.destination as? SecondDetailViewController {
-            
-            switch segue.identifier {
-            case "peopleSegue":
-                secondDetailVC.peopleData = people[currentIndexPath]
-            case "locationSegue":
-                secondDetailVC.locationData = locations[currentIndexPath]
-            case "filmSegue":
-                secondDetailVC.filmData = films[currentIndexPath]
-            case "speciesSegue":
-                secondDetailVC.speciesData = species[currentIndexPath]
-            case "vehicleSegue":
-                secondDetailVC.vehicleData = vehicles[currentIndexPath]
-            default:
-                print("Segue ID error")
             }
         }
     }
@@ -210,20 +221,8 @@ extension DetailViewController: UICollectionViewDataSource {
 
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currentIndexPath = indexPath.row
-        switch collectionView {
-        case peopleCollectionView:
-            performSegue(withIdentifier: "peopleSegue", sender: self)
-        case filmsCollectionView:
-            performSegue(withIdentifier: "filmSegue", sender: self)
-        case locationsCollectionView:
-            performSegue(withIdentifier: "locationSegue", sender: self)
-        case speciesCollectionView:
-            performSegue(withIdentifier: "speciesSegue", sender: self)
-        case vehiclesCollectionView:
-            performSegue(withIdentifier: "vehicleSegue", sender: self)
-        default:
-            print("Error")
+        if collectionView == peopleCollectionView {
+            configureWithPeople(people[indexPath.row])
         }
     }
 }
