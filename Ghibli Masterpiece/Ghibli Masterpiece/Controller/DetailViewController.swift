@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var speciesBlock: UIStackView!
     @IBOutlet weak var peopleBlock: UIStackView!
     @IBOutlet weak var filmBlock: UIStackView!
+    @IBOutlet weak var lastLabelBlock: UIStackView!
     
     var currentIndexPath = 0
     
@@ -31,10 +32,15 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var descriptionLable: UILabel!
-    @IBOutlet weak var directorLable: UILabel!
-    @IBOutlet weak var producerLable: UILabel!
-    @IBOutlet weak var releaseDate: UILabel!
+    @IBOutlet weak var titleLabelOne: UILabel!
+    @IBOutlet weak var titleLabelTwo: UILabel!
+    @IBOutlet weak var titleLabelThree: UILabel!
+    @IBOutlet weak var titleLabelFour: UILabel!
+    
+    @IBOutlet weak var labelOne: UILabel!
+    @IBOutlet weak var labelTwo: UILabel!
+    @IBOutlet weak var labelThree: UILabel!
+    @IBOutlet weak var labelFour: UILabel!
 
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet weak var peopleCollectionView: UICollectionView!
@@ -57,13 +63,13 @@ class DetailViewController: UIViewController {
             fillUpLocationList(urls: film.locations!)
             fillUpVehicleList(urls: film.vehicles!)
             configureImage(film.movie_banner)
-            descriptionLable.text = film.description
-            directorLable.text = film.director
-            producerLable.text = film.producer
-            releaseDate.text = film.release_date
+            labelFour.text = film.description
+            labelOne.text = film.director
+            labelTwo.text = film.producer
+            labelThree.text = film.release_date
 
             navigationItem.title = film.title
-            blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false)
+            blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false, lastLabel: false)
         }
     }
     
@@ -73,14 +79,19 @@ class DetailViewController: UIViewController {
             fillUpSpeciesList(url: people.species!)
             fillUpFilmList(urls: people.films!)
             
-            descriptionLable.text = people.gender
-            directorLable.text = people.age
-            producerLable.text = people.eye_color
-            releaseDate.text = people.hair_color
+            titleLabelOne.text = "Age:"
+            titleLabelTwo.text = "Eye color:"
+            titleLabelThree.text = "Hair color:"
+            titleLabelFour.text = "Gender:"
+            
+            labelOne.text = people.age
+            labelTwo.text = people.eye_color
+            labelThree.text = people.hair_color
+            labelFour.text = people.gender
 
             navigationItem.title = people.name
         }
-        blockIsHidden(people: true, films: false, locations: false, species: false, vehicles: false)
+        blockIsHidden(people: true, films: false, locations: true, species: false, vehicles: true, lastLabel: false)
     }
     
     func configureImage(_ str: String?) {
@@ -178,13 +189,14 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func blockIsHidden(people: Bool, films: Bool, locations: Bool, species: Bool, vehicles: Bool) {
+    func blockIsHidden(people: Bool, films: Bool, locations: Bool, species: Bool, vehicles: Bool, lastLabel: Bool) {
        
         peopleBlock.isHidden = people
         filmBlock.isHidden = films
         locationsBlock.isHidden = locations
         speciesBlock.isHidden = species
         vehicleBlock.isHidden = vehicles
+        lastLabelBlock.isHidden = lastLabel
     }
 }
 

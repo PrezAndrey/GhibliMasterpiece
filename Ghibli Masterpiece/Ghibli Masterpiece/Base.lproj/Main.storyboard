@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1612"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-na-Gid" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1618"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1642"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-QF-u9p" userLabel="MainStackView">
                                                 <rect key="frame" x="8" y="8" width="398" height="1575.5"/>
@@ -137,13 +137,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-ip-9w4" userLabel="DirectorStackView">
                                                         <rect key="frame" x="0.0" y="279" width="398" height="54.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-HB-O1d">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabelOne:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-HB-O1d">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DirectorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSe-Rn-Dh0">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelOne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSe-Rn-Dh0">
                                                                 <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                 <nil key="textColor"/>
@@ -154,13 +154,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AY8-kT-0yG" userLabel="ProducerStackView">
                                                         <rect key="frame" x="0.0" y="363.5" width="398" height="54.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-ru-KMw">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabelTwo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-ru-KMw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProducerLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpP-Ov-cx9">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelTwo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpP-Ov-cx9">
                                                                 <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                 <nil key="textColor"/>
@@ -171,13 +171,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="47w-VU-dvz" userLabel="ReleaseDateStackView">
                                                         <rect key="frame" x="0.0" y="448" width="398" height="54.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-ue-DQu">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabelThree:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-ue-DQu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-g9-fhv" userLabel="Release Date Lable">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelThree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-g9-fhv" userLabel="Release Date Lable">
                                                                 <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                 <nil key="textColor"/>
@@ -188,13 +188,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OQV-ST-903" userLabel="DescriptionStackView">
                                                         <rect key="frame" x="0.0" y="532.5" width="398" height="54.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHV-sR-6Tz">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabelFour:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHV-sR-6Tz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="191-WP-uYS">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelFour" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="191-WP-uYS">
                                                                 <rect key="frame" x="0.0" y="30.5" width="398" height="24"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                 <nil key="textColor"/>
@@ -542,20 +542,25 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1700"/>
                     <connections>
-                        <outlet property="descriptionLable" destination="191-WP-uYS" id="VC9-Ai-tiM"/>
-                        <outlet property="directorLable" destination="zSe-Rn-Dh0" id="Wqq-aB-Ba4"/>
                         <outlet property="filmBlock" destination="lyh-Xi-siT" id="ecM-lf-TiL"/>
                         <outlet property="filmsCollectionView" destination="E4L-bF-u2X" id="Dvi-HD-mCT"/>
                         <outlet property="imageView" destination="ynH-QT-qrL" id="74F-Fu-zfl"/>
+                        <outlet property="labelFour" destination="191-WP-uYS" id="VC9-Ai-tiM"/>
+                        <outlet property="labelOne" destination="zSe-Rn-Dh0" id="Wqq-aB-Ba4"/>
+                        <outlet property="labelThree" destination="ciL-g9-fhv" id="Yov-Hg-Mbe"/>
+                        <outlet property="labelTwo" destination="UpP-Ov-cx9" id="84d-Ak-Azb"/>
+                        <outlet property="lastLabelBlock" destination="OQV-ST-903" id="IOf-Pn-2Xp"/>
                         <outlet property="locationsBlock" destination="Xqk-X6-RwJ" id="rbh-Iy-SB3"/>
                         <outlet property="locationsCollectionView" destination="inP-ob-3nd" id="QbW-sU-P9G"/>
                         <outlet property="peopleBlock" destination="V4U-57-GXF" id="aQg-KB-3mI"/>
                         <outlet property="peopleCollectionView" destination="321-0E-3Ci" id="dLF-Mi-ACd"/>
-                        <outlet property="producerLable" destination="UpP-Ov-cx9" id="84d-Ak-Azb"/>
-                        <outlet property="releaseDate" destination="ciL-g9-fhv" id="Yov-Hg-Mbe"/>
                         <outlet property="scrollView" destination="9jm-3q-vyf" id="QbZ-Ir-jTr"/>
                         <outlet property="speciesBlock" destination="Iwa-kV-st2" id="eHy-J8-N9k"/>
                         <outlet property="speciesCollectionView" destination="mu8-xT-Tj6" id="wty-ic-De6"/>
+                        <outlet property="titleLabelFour" destination="QHV-sR-6Tz" id="VuT-tb-732"/>
+                        <outlet property="titleLabelOne" destination="1NF-HB-O1d" id="oOG-Hu-fQK"/>
+                        <outlet property="titleLabelThree" destination="g5m-ue-DQu" id="1DY-Nw-h1U"/>
+                        <outlet property="titleLabelTwo" destination="Xtt-ru-KMw" id="Gwv-fb-NUF"/>
                         <outlet property="vehicleBlock" destination="5le-zW-24e" id="clr-zV-fzg"/>
                         <outlet property="vehiclesCollectionView" destination="7I8-uY-6bU" id="QnY-4e-F4t"/>
                     </connections>
