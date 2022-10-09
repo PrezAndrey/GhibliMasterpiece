@@ -97,6 +97,21 @@ class DetailViewController: UIViewController {
         blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: true)
     }
     
+    func configureUI(with location: Location?) {
+        if let location = location {
+            fillUpPeopleList(urls: location.residents!)
+            fillUpFilmList(urls: location.films!)
+            
+            configureTitleLabels(first: "Climate:", second: "Terrain:", third: "Surface water:", fourth: nil)
+            configureLabels(first: location.climate!, second: location.terrain!, third: location.surface_water!, fourth: nil)
+            
+            navigationItem.title = location.name
+        }
+        blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: false)
+    }
+    
+    
+    
     func configureImage(_ str: String?) {
         guard let str = str,
               let url = URL(string: str)
@@ -283,7 +298,7 @@ extension DetailViewController: UICollectionViewDelegate {
         case speciesCollectionView:
             configureUI(with: species[indexPath.row])
         case locationsCollectionView:
-            print("Location")
+            configureUI(with: locations[indexPath.row])
         case vehiclesCollectionView:
             print("Vehicle")
         case filmsCollectionView:
