@@ -63,11 +63,10 @@ class DetailViewController: UIViewController {
             fillUpLocationList(urls: film.locations!)
             fillUpVehicleList(urls: film.vehicles!)
             configureImage(film.movie_banner)
-            labelFour.text = film.description
-            labelOne.text = film.director
-            labelTwo.text = film.producer
-            labelThree.text = film.release_date
-
+            
+            configureTitleLabels(first: "Director:", second: "Producer:", third: "Release date:", fourth: "Description:")
+            configureLabels(first: film.director!, second: film.producer!, third: film.release_date!, fourth: film.description!)
+            
             navigationItem.title = film.title
             blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false, lastLabel: false)
         }
@@ -79,10 +78,8 @@ class DetailViewController: UIViewController {
             fillUpSpeciesList(url: people.species!)
             fillUpFilmList(urls: people.films!)
             
-            titleLabelOne.text = "Age:"
-            titleLabelTwo.text = "Eye color:"
-            titleLabelThree.text = "Hair color:"
-            titleLabelFour.text = "Gender:"
+            configureTitleLabels(first: "Age:", second: "Eye color:", third: "Hair color:", fourth: "Gender:")
+            configureLabels(first: people.age!, second: people.eye_color!, third: people.hair_color!, fourth: people.gender!)
             
             labelOne.text = people.age
             labelTwo.text = people.eye_color
@@ -197,6 +194,28 @@ class DetailViewController: UIViewController {
         speciesBlock.isHidden = species
         vehicleBlock.isHidden = vehicles
         lastLabelBlock.isHidden = lastLabel
+    }
+    
+    func configureTitleLabels(first: String, second: String, third: String, fourth: String?) {
+        
+        titleLabelOne.text = first
+        titleLabelTwo.text = second
+        titleLabelThree.text = third
+        
+        if let fourth = fourth {
+            titleLabelFour.text = fourth
+        }
+    }
+    
+    func configureLabels(first: String, second: String, third: String, fourth: String?) {
+        
+        labelOne.text = first
+        labelTwo.text = second
+        labelThree.text = third
+        
+        if let fourth = fourth {
+            labelFour.text = fourth
+        }
     }
 }
 
