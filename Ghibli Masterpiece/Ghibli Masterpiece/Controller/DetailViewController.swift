@@ -57,7 +57,6 @@ class DetailViewController: UIViewController {
     // Configuration functions
     func configureUI(with film: Film?) {
         if let film = film {
-            
             fillUpSpeciesList(urls: film.species!)
             fillUpPeopleList(urls: film.people!)
             fillUpLocationList(urls: film.locations!)
@@ -74,21 +73,28 @@ class DetailViewController: UIViewController {
     
     func configureUI(with people: People?) {
         if let people = people {
-            
             fillUpSpeciesList(url: people.species!)
             fillUpFilmList(urls: people.films!)
             
             configureTitleLabels(first: "Age:", second: "Eye color:", third: "Hair color:", fourth: "Gender:")
             configureLabels(first: people.age!, second: people.eye_color!, third: people.hair_color!, fourth: people.gender!)
             
-            labelOne.text = people.age
-            labelTwo.text = people.eye_color
-            labelThree.text = people.hair_color
-            labelFour.text = people.gender
-
             navigationItem.title = people.name
         }
         blockIsHidden(people: true, films: false, locations: true, species: false, vehicles: true, lastLabel: false)
+    }
+    
+    func configureUI(with species: Species?) {
+        if let species = species {
+            fillUpFilmList(urls: species.films!)
+            fillUpPeopleList(urls: species.people!)
+            
+            configureTitleLabels(first: "Classification:", second: "Eye color:", third: "Hair color:", fourth: nil)
+            configureLabels(first: species.classification!, second: species.eye_colors!, third: species.hair_colors!, fourth: nil)
+            
+            navigationItem.title = species.name
+        }
+        blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: true)
     }
     
     func configureImage(_ str: String?) {
@@ -271,8 +277,19 @@ extension DetailViewController: UICollectionViewDataSource {
 
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == peopleCollectionView {
+        switch collectionView {
+        case peopleCollectionView:
             configureUI(with: people[indexPath.row])
+        case speciesCollectionView:
+            configureUI(with: species[indexPath.row])
+        case locationsCollectionView:
+            print("Location")
+        case vehiclesCollectionView:
+            print("Vehicle")
+        case filmsCollectionView:
+            configureUI(with: films[indexPath.row])
+        default:
+            print("Collection View Error")
         }
     }
 }

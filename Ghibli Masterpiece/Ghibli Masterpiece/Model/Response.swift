@@ -68,8 +68,8 @@ struct Species: Decodable {
     var id: String?
     var name: String?
     var classification: String?
-    var eye_color: String?
-    var hair_color: String?
+    var eye_colors: String?
+    var hair_colors: String?
     var people: [String]?
     var films: [String]?
     var url: String?
