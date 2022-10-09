@@ -385,67 +385,8 @@
                                                             </collectionView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Xqk-X6-RwJ" userLabel="Locations Stack View">
-                                                        <rect key="frame" x="0.0" y="1210.5" width="398" height="167.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-z7-Rfr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="inP-ob-3nd" userLabel="Location Collection View">
-                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="140" id="dIO-ZC-45O"/>
-                                                                    <constraint firstAttribute="width" constant="398" id="ozC-e3-Xd2"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="l7I-sa-GkS">
-                                                                    <size key="itemSize" width="174" height="40"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                                <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="UL9-zu-Fxa" userLabel="locationCell" customClass="LocationCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="oWn-m9-VXG">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r72-JJ-hQf">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
-                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemMintColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="bottom" secondItem="r72-JJ-hQf" secondAttribute="bottom" id="Fl1-cP-bS8"/>
-                                                                                <constraint firstItem="r72-JJ-hQf" firstAttribute="leading" secondItem="oWn-m9-VXG" secondAttribute="leading" id="KPn-sq-ClK"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="r72-JJ-hQf" secondAttribute="trailing" id="TqR-OH-sfJ"/>
-                                                                                <constraint firstItem="r72-JJ-hQf" firstAttribute="top" secondItem="oWn-m9-VXG" secondAttribute="top" id="VaO-xu-oaI"/>
-                                                                            </constraints>
-                                                                        </collectionViewCellContentView>
-                                                                        <size key="customSize" width="174" height="40"/>
-                                                                        <connections>
-                                                                            <outlet property="locationLabel" destination="r72-JJ-hQf" id="2ug-9o-uBO"/>
-                                                                        </connections>
-                                                                    </collectionViewCell>
-                                                                </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="amc-3m-cXV" id="53r-tY-Zfy"/>
-                                                                    <outlet property="delegate" destination="amc-3m-cXV" id="vfw-zD-SLb"/>
-                                                                </connections>
-                                                            </collectionView>
-                                                        </subviews>
-                                                    </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5le-zW-24e" userLabel="Vehicles Stack View">
-                                                        <rect key="frame" x="0.0" y="1408" width="398" height="167.5"/>
+                                                        <rect key="frame" x="0.0" y="1210.5" width="398" height="167.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicles:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOw-1g-uL0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
@@ -499,6 +440,65 @@
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="amc-3m-cXV" id="pEt-we-Mzo"/>
                                                                     <outlet property="delegate" destination="amc-3m-cXV" id="VbW-hO-dhS"/>
+                                                                </connections>
+                                                            </collectionView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Xqk-X6-RwJ" userLabel="Locations Stack View">
+                                                        <rect key="frame" x="0.0" y="1408" width="398" height="167.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-z7-Rfr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="inP-ob-3nd" userLabel="Location Collection View">
+                                                                <rect key="frame" x="0.0" y="27.5" width="398" height="140"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="140" id="dIO-ZC-45O"/>
+                                                                    <constraint firstAttribute="width" constant="398" id="ozC-e3-Xd2"/>
+                                                                </constraints>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="l7I-sa-GkS">
+                                                                    <size key="itemSize" width="174" height="40"/>
+                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                </collectionViewFlowLayout>
+                                                                <cells>
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="UL9-zu-Fxa" userLabel="locationCell" customClass="LocationCollectionViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="oWn-m9-VXG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r72-JJ-hQf">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
+                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="bottom" secondItem="r72-JJ-hQf" secondAttribute="bottom" id="Fl1-cP-bS8"/>
+                                                                                <constraint firstItem="r72-JJ-hQf" firstAttribute="leading" secondItem="oWn-m9-VXG" secondAttribute="leading" id="KPn-sq-ClK"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="r72-JJ-hQf" secondAttribute="trailing" id="TqR-OH-sfJ"/>
+                                                                                <constraint firstItem="r72-JJ-hQf" firstAttribute="top" secondItem="oWn-m9-VXG" secondAttribute="top" id="VaO-xu-oaI"/>
+                                                                            </constraints>
+                                                                        </collectionViewCellContentView>
+                                                                        <size key="customSize" width="174" height="40"/>
+                                                                        <connections>
+                                                                            <outlet property="locationLabel" destination="r72-JJ-hQf" id="2ug-9o-uBO"/>
+                                                                        </connections>
+                                                                    </collectionViewCell>
+                                                                </cells>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="amc-3m-cXV" id="53r-tY-Zfy"/>
+                                                                    <outlet property="delegate" destination="amc-3m-cXV" id="vfw-zD-SLb"/>
                                                                 </connections>
                                                             </collectionView>
                                                         </subviews>

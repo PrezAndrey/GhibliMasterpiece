@@ -110,7 +110,18 @@ class DetailViewController: UIViewController {
         blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: false)
     }
     
-    
+    func configureUI(with vehicle: Vehicle?) {
+        if let vehicle = vehicle {
+            fillUpPeopleList(url: vehicle.pilot!)
+            fillUpFilmList(urls: vehicle.films!)
+            
+            configureTitleLabels(first: "Description:", second: "Vehicle class:", third: "Vehicle length:", fourth: nil)
+            configureLabels(first: vehicle.description!, second: vehicle.vehicle_class!, third: vehicle.length!, fourth: nil)
+            
+            navigationItem.title = vehicle.name
+        }
+        blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: true)
+    }
     
     func configureImage(_ str: String?) {
         guard let str = str,
@@ -123,7 +134,7 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpPeopleList(urls: [String]) {
-        
+        people = [People]()
         for i in urls {
             if i.hasSuffix("people/"){
                 networkDataFetcher.fetchPeopleArray(urlString: i) { (people) in
@@ -141,7 +152,17 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func fillUpPeopleList(url: String) {
+        people = [People]()
+        networkDataFetcher.fetchPeopleData(urlString: url) { (people) in
+            guard let people = people as? People else { return }
+            self.people.append(people)
+            self.peopleCollectionView.reloadData()
+        }
+    }
+    
     func fillUpSpeciesList(urls: [String]) {
+        species = [Species]()
         for i in urls {
             networkDataFetcher.fetchSpeciesData(urlString: i) { (species) in
                 guard let species = species as? Species else { return }
@@ -172,6 +193,7 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpLocationList(urls: [String]) {
+        locations = [Location]()
         for i in urls {
             if i.hasSuffix("locations/") {
                 networkDataFetcher.fetchLocationArray(urlString: i) { (locations) in
@@ -190,6 +212,7 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpVehicleList(urls: [String]) {
+        vehicles = [Vehicle]()
         for i in urls {
             if i.hasSuffix("vehicles/") {
                 networkDataFetcher.fetchVehicleArray(urlString: i) { (vehicles) in
@@ -300,7 +323,7 @@ extension DetailViewController: UICollectionViewDelegate {
         case locationsCollectionView:
             configureUI(with: locations[indexPath.row])
         case vehiclesCollectionView:
-            print("Vehicle")
+            configureUI(with: vehicles[indexPath.row])
         case filmsCollectionView:
             configureUI(with: films[indexPath.row])
         default:
