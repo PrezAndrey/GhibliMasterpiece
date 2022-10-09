@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkDataFetcher.fetchData(urlString: urlString) { (result) in
+        networkDataFetcher.fetchFilmArray(urlString: urlString) { (result) in
             guard let result = result as? [Film] else { return }
             self.films = result
             print(self.films)

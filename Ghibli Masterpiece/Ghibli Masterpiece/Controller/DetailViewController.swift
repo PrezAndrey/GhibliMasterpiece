@@ -45,11 +45,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI(film)
+        configureUI(with: film)
     }
     
     // Configuration functions
-    func configureUI(_ film: Film?) {
+    func configureUI(with film: Film?) {
         if let film = film {
             
             fillUpSpeciesList(urls: film.species!)
@@ -63,10 +63,11 @@ class DetailViewController: UIViewController {
             releaseDate.text = film.release_date
 
             navigationItem.title = film.title
+            blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false)
         }
     }
     
-    func configureWithPeople(_ people: People?) {
+    func configureUI(with people: People?) {
         if let people = people {
             
             fillUpSpeciesList(url: people.species!)
@@ -79,6 +80,7 @@ class DetailViewController: UIViewController {
 
             navigationItem.title = people.name
         }
+        blockIsHidden(people: true, films: false, locations: false, species: false, vehicles: false)
     }
     
     func configureImage(_ str: String?) {
@@ -121,6 +123,7 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpSpeciesList(url: String) {
+        species = [Species]()
         networkDataFetcher.fetchSpeciesData(urlString: url) { (species) in
             guard let species = species as? Species else { return }
             self.species.append(species)
@@ -129,11 +132,12 @@ class DetailViewController: UIViewController {
     }
     
     func fillUpFilmList(urls: [String]) {
+        films = [Film]()
         for i in urls {
-            networkDataFetcher.fetchData(urlString: i) { (films) in
-                guard let filmes = films as? Film else { return }
-                self.films.append(filmes)
-                self.speciesCollectionView.reloadData()
+            networkDataFetcher.fetchFilmData(urlString: i) { (film) in
+                guard let film = film as? Film else { return }
+                self.films.append(film)
+                self.filmsCollectionView.reloadData()
             }
         }
     }
@@ -173,6 +177,15 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    func blockIsHidden(people: Bool, films: Bool, locations: Bool, species: Bool, vehicles: Bool) {
+       
+        peopleBlock.isHidden = people
+        filmBlock.isHidden = films
+        locationsBlock.isHidden = locations
+        speciesBlock.isHidden = species
+        vehicleBlock.isHidden = vehicles
+    }
 }
 
 
@@ -189,6 +202,8 @@ extension DetailViewController: UICollectionViewDataSource {
             return locations.count
         case vehiclesCollectionView:
             return vehicles.count
+        case filmsCollectionView:
+            return films.count
         default:
             return 0
         }
@@ -213,6 +228,10 @@ extension DetailViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "vehicleCell", for: indexPath) as! VehicleCollectionViewCell
             cell.vehicleName.text = vehicles[indexPath.row].name
             return cell
+        case filmsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filmCell", for: indexPath) as! FilmsCollectionViewCell
+            cell.filmName.text = films[indexPath.row].title
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -222,7 +241,12 @@ extension DetailViewController: UICollectionViewDataSource {
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == peopleCollectionView {
-            configureWithPeople(people[indexPath.row])
+            configureUI(with: people[indexPath.row])
         }
     }
+}
+
+// MARK: People
+extension DetailViewController {
+    
 }
