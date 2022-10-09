@@ -50,11 +50,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI(with: film)
     }
     
-    // Configuration functions
+// MARK: Configuration functions
     func configureUI(with film: Film?) {
         if let film = film {
             fillUpSpeciesList(urls: film.species!)
@@ -69,6 +68,7 @@ class DetailViewController: UIViewController {
             navigationItem.title = film.title
             blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false, lastLabel: false)
         }
+        blockIsHidden(people: false, films: true, locations: false, species: false, vehicles: false, lastLabel: false)
     }
     
     func configureUI(with people: People?) {
@@ -133,103 +133,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func fillUpPeopleList(urls: [String]) {
-        people = [People]()
-        for i in urls {
-            if i.hasSuffix("people/"){
-                networkDataFetcher.fetchPeopleArray(urlString: i) { (people) in
-                    guard let people = people else { return }
-                    self.people = people
-                    self.peopleCollectionView.reloadData()
-                }
-            } else {
-                networkDataFetcher.fetchPeopleData(urlString: i) { (people) in
-                    guard let people = people as? People else { return }
-                    self.people.append(people)
-                    self.peopleCollectionView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func fillUpPeopleList(url: String) {
-        people = [People]()
-        networkDataFetcher.fetchPeopleData(urlString: url) { (people) in
-            guard let people = people as? People else { return }
-            self.people.append(people)
-            self.peopleCollectionView.reloadData()
-        }
-    }
-    
-    func fillUpSpeciesList(urls: [String]) {
-        species = [Species]()
-        for i in urls {
-            networkDataFetcher.fetchSpeciesData(urlString: i) { (species) in
-                guard let species = species as? Species else { return }
-                self.species.append(species)
-                self.speciesCollectionView.reloadData()
-            }
-        }
-    }
-    
-    func fillUpSpeciesList(url: String) {
-        species = [Species]()
-        networkDataFetcher.fetchSpeciesData(urlString: url) { (species) in
-            guard let species = species as? Species else { return }
-            self.species.append(species)
-            self.speciesCollectionView.reloadData()
-        }
-    }
-    
-    func fillUpFilmList(urls: [String]) {
-        films = [Film]()
-        for i in urls {
-            networkDataFetcher.fetchFilmData(urlString: i) { (film) in
-                guard let film = film as? Film else { return }
-                self.films.append(film)
-                self.filmsCollectionView.reloadData()
-            }
-        }
-    }
-    
-    func fillUpLocationList(urls: [String]) {
-        locations = [Location]()
-        for i in urls {
-            if i.hasSuffix("locations/") {
-                networkDataFetcher.fetchLocationArray(urlString: i) { (locations) in
-                    guard let locations = locations as? [Location] else { return }
-                    self.locations = locations
-                    self.locationsCollectionView.reloadData()
-                }
-            } else {
-                networkDataFetcher.fetchLocationData(urlString: i) { (locations) in
-                    guard let locations = locations as? Location else { return }
-                    self.locations.append(locations)
-                    self.locationsCollectionView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func fillUpVehicleList(urls: [String]) {
-        vehicles = [Vehicle]()
-        for i in urls {
-            if i.hasSuffix("vehicles/") {
-                networkDataFetcher.fetchVehicleArray(urlString: i) { (vehicles) in
-                    guard let vehicles = vehicles as? [Vehicle] else { return }
-                    self.vehicles = vehicles
-                    self.vehiclesCollectionView.reloadData()
-                }
-            } else {
-                networkDataFetcher.fetchVehicleData(urlString: i) { (vehicles) in
-                    guard let vehicles = vehicles as? Vehicle else { return }
-                    self.vehicles.append(vehicles)
-                    self.vehiclesCollectionView.reloadData()
-                }
-            }
-        }
-    }
-    
     func blockIsHidden(people: Bool, films: Bool, locations: Bool, species: Bool, vehicles: Bool, lastLabel: Bool) {
        
         peopleBlock.isHidden = people
@@ -264,6 +167,114 @@ class DetailViewController: UIViewController {
 }
 
 
+// MARK: Fill up array functions
+extension DetailViewController {
+    
+    // People
+    func fillUpPeopleList(urls: [String]) {
+        people = [People]()
+        for i in urls {
+            if i.hasSuffix("people/"){
+                networkDataFetcher.fetchPeopleArray(urlString: i) { (people) in
+                    guard let people = people else { return }
+                    self.people = people
+                    self.peopleCollectionView.reloadData()
+                }
+            } else {
+                networkDataFetcher.fetchPeopleData(urlString: i) { (people) in
+                    guard let people = people else { return }
+                    self.people.append(people)
+                    self.peopleCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func fillUpPeopleList(url: String) {
+        people = [People]()
+        networkDataFetcher.fetchPeopleData(urlString: url) { (people) in
+            guard let people = people else { return }
+            self.people.append(people)
+            self.peopleCollectionView.reloadData()
+        }
+    }
+    
+    // Films
+    func fillUpFilmList(urls: [String]) {
+        films = [Film]()
+        for i in urls {
+            networkDataFetcher.fetchFilmData(urlString: i) { (film) in
+                guard let film = film else { return }
+                self.films.append(film)
+                self.filmsCollectionView.reloadData()
+            }
+        }
+    }
+    
+    // Locations
+    func fillUpLocationList(urls: [String]) {
+        locations = [Location]()
+        for i in urls {
+            if i.hasSuffix("locations/") {
+                networkDataFetcher.fetchLocationArray(urlString: i) { (locations) in
+                    guard let locations = locations else { return }
+                    self.locations = locations
+                    self.locationsCollectionView.reloadData()
+                }
+            } else {
+                networkDataFetcher.fetchLocationData(urlString: i) { (locations) in
+                    guard let locations = locations else { return }
+                    self.locations.append(locations)
+                    self.locationsCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    // Species
+    func fillUpSpeciesList(urls: [String]) {
+        species = [Species]()
+        for i in urls {
+            networkDataFetcher.fetchSpeciesData(urlString: i) { (species) in
+                guard let species = species else { return }
+                self.species.append(species)
+                self.speciesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func fillUpSpeciesList(url: String) {
+        species = [Species]()
+        networkDataFetcher.fetchSpeciesData(urlString: url) { (species) in
+            guard let species = species else { return }
+            self.species.append(species)
+            self.speciesCollectionView.reloadData()
+        }
+    }
+    
+    // Vehicles
+    func fillUpVehicleList(urls: [String]) {
+        vehicles = [Vehicle]()
+        for i in urls {
+            if i.hasSuffix("vehicles/") {
+                networkDataFetcher.fetchVehicleArray(urlString: i) { (vehicles) in
+                    guard let vehicles = vehicles else { return }
+                    self.vehicles = vehicles
+                    self.vehiclesCollectionView.reloadData()
+                }
+            } else {
+                networkDataFetcher.fetchVehicleData(urlString: i) { (vehicles) in
+                    guard let vehicles = vehicles else { return }
+                    self.vehicles.append(vehicles)
+                    self.vehiclesCollectionView.reloadData()
+                }
+            }
+        }
+    }
+}
+ 
+
+// MARK: Collection View Data Source
 extension DetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -313,6 +324,8 @@ extension DetailViewController: UICollectionViewDataSource {
     }
 }
 
+
+// MARK: Collection View Delegate
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
@@ -329,10 +342,7 @@ extension DetailViewController: UICollectionViewDelegate {
         default:
             print("Collection View Error")
         }
+        scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 414, height: 896), animated: true)
     }
 }
 
-// MARK: People
-extension DetailViewController {
-    
-}
