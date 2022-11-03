@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilmTableViewCell: UITableViewCell {
+class MainTableViewCell: UITableViewCell {
 
     
     

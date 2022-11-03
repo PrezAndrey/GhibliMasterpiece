@@ -17,17 +17,13 @@ class MainViewController: UIViewController {
     var people: [People]? = nil
     var vehicles: [Vehicle]? = nil
     let networkDataFetcher = NetworkDataFetcher()
-    var filmsUrlString = ""
-    var peopleUrlString = ""
-    var locationsUrlString = ""
-    var speciesUrlString = ""
-    var vehiclesUrlString = ""
+
     var currentValue = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureTableView(data: "Locations", url: "https://ghibliapi.herokuapp.com/locations/")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,7 +47,7 @@ class MainViewController: UIViewController {
                 self.tableView.reloadData()
             }
         case "Films":
-            networkDataFetcher.fetchFilmArray(urlString: filmsUrlString) { (result) in
+            networkDataFetcher.fetchFilmArray(urlString: url) { (result) in
                 guard let result = result else { return }
                 self.films = result
                 self.tableView.reloadData()
@@ -95,25 +91,71 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        films?.count ?? 0
+        var amountOfRows = 0
+        
+        switch currentValue {
+        case "Locations":
+            guard let amount = locations?.count else { return 0 }
+            amountOfRows = amount
+        case "Films":
+            guard let amount = films?.count else { return 0 }
+            amountOfRows = amount
+        case "People":
+            guard let amount = people?.count else { return 0 }
+            amountOfRows = amount
+        case "Vehicles":
+            guard let amount = vehicles?.count else { return 0 }
+            amountOfRows = amount
+        case "Species":
+            guard let amount = species?.count else { return 0 }
+            amountOfRows = amount
+        default:
+            print("No value")
+        }
+        return amountOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! FilmTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! MainTableViewCell
         
-        guard let currentFilm = films?[indexPath.row] else { return cell }
-        
-        cell.filmName.text = currentFilm.title
-        cell.directorLable.text = currentFilm.director
-        cell.originalName.text = currentFilm.original_title
-        
-        
-        guard let imageString = currentFilm.image,
-            let imageUrl = URL(string: imageString) else { return cell }
-        
-        if let imageData = try? Data(contentsOf: imageUrl) {
-            cell.filmImage.image = UIImage(data: imageData)
+        switch currentValue {
+        case "Locations":
+            guard let currentLocation = locations?[indexPath.row] else { return cell }
+            cell.filmName.text = currentLocation.name
+            cell.directorLable.text = currentLocation.terrain
+            cell.originalName.text = currentLocation.climate
+            cell.filmImage.image = UIImage(named: "noImage")
+        case "Films":
+            guard let currentFilm = films?[indexPath.row] else { return cell }
+            cell.filmName.text = currentFilm.title
+            cell.directorLable.text = currentFilm.director
+            cell.originalName.text = currentFilm.original_title
+            guard let imageString = currentFilm.image,
+                let imageUrl = URL(string: imageString) else { return cell }
+            if let imageData = try? Data(contentsOf: imageUrl) {
+                cell.filmImage.image = UIImage(data: imageData)
+            }
+        case "People":
+            guard let currentPeople = people?[indexPath.row] else { return cell }
+            cell.filmName.text = currentPeople.name
+            cell.directorLable.text = currentPeople.species
+            cell.originalName.text = currentPeople.gender
+            cell.filmImage.image = UIImage(named: "noImage")
+        case "Vehicles":
+            guard let currentVehicle = vehicles?[indexPath.row] else { return cell }
+            cell.filmName.text = currentVehicle.name
+            cell.directorLable.text = currentVehicle.vehicle_class
+            cell.originalName.text = currentVehicle.pilot
+            cell.filmImage.image = UIImage(named: "noImage")
+        case "Species":
+            guard let currentSpecies = species?[indexPath.row] else { return cell }
+            cell.filmName.text = currentSpecies.name
+            cell.directorLable.text = currentSpecies.classification
+            cell.originalName.text =  ""
+            cell.filmImage.image = UIImage(named: "noImage")
+        default:
+            print("No value")
         }
 
         return cell
