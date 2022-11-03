@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1612"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-na-Gid" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1642"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1612"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-QF-u9p" userLabel="MainStackView">
                                                 <rect key="frame" x="8" y="8" width="398" height="1575.5"/>
@@ -590,7 +590,7 @@
         <!--Ghibli studio library-->
         <scene sceneID="KOX-sW-TTj">
             <objects>
-                <viewController id="PFv-IM-1xG" sceneMemberID="viewController">
+                <viewController id="PFv-IM-1xG" customClass="LibraryViewController" customModule="Ghibli_Masterpiece" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qbp-71-CUe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,6 +613,7 @@
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="didMoveToFilms:" destination="PFv-IM-1xG" eventType="touchUpInside" id="Qfa-km-dvK"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="jkV-iV-Ls4"/>
                                         </connections>
                                     </button>
@@ -630,6 +631,9 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="40"/>
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didMoveToPeople:" destination="PFv-IM-1xG" eventType="touchUpInside" id="Idt-c8-KFe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lps-d6-x8e">
                                         <rect key="frame" x="0.0" y="270" width="374" height="60"/>
@@ -645,6 +649,9 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="40"/>
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didMoveToLocations:" destination="PFv-IM-1xG" eventType="touchUpInside" id="G9F-Mb-n8s"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcr-jY-EZC">
                                         <rect key="frame" x="0.0" y="405" width="374" height="60"/>
@@ -660,6 +667,9 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="40"/>
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didMoveToSpecies:" destination="PFv-IM-1xG" eventType="touchUpInside" id="RaY-Ny-dhd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z46-7k-rsT">
                                         <rect key="frame" x="0.0" y="540" width="374" height="60"/>
@@ -675,6 +685,9 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="40"/>
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didMoveToVehicles:" destination="PFv-IM-1xG" eventType="touchUpInside" id="e3R-xe-Y4j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

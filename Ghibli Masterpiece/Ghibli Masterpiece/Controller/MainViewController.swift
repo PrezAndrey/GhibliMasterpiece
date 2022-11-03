@@ -12,17 +12,22 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var films: [Film]? = nil
+    var locations: [Location]? = nil
+    var species: [Species]? = nil
+    var people: [People]? = nil
+    var vehicles: [Vehicle]? = nil
     let networkDataFetcher = NetworkDataFetcher()
-    let urlString = "https://ghibliapi.herokuapp.com/films"
+    var filmsUrlString = ""
+    var peopleUrlString = ""
+    var locationsUrlString = ""
+    var speciesUrlString = ""
+    var vehiclesUrlString = ""
+    var currentValue = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkDataFetcher.fetchFilmArray(urlString: urlString) { (result) in
-            guard let result = result as? [Film] else { return }
-            self.films = result
-            print(self.films)
-            self.tableView.reloadData()
-        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,6 +41,43 @@ class MainViewController: UIViewController {
         }
     }
     
+    func configureTableView(data: String, url: String) {
+        currentValue = data
+        switch currentValue {
+        case "Locations":
+            networkDataFetcher.fetchLocationArray(urlString: url) { (locations) in
+                guard let locationsArray = locations else { return }
+                self.locations = locationsArray
+                self.tableView.reloadData()
+            }
+        case "Films":
+            networkDataFetcher.fetchFilmArray(urlString: filmsUrlString) { (result) in
+                guard let result = result else { return }
+                self.films = result
+                self.tableView.reloadData()
+            }
+        case "People":
+            networkDataFetcher.fetchPeopleArray(urlString: url) { (people) in
+                guard let peopleArray = people else { return }
+                self.people = peopleArray
+                self.tableView.reloadData()
+            }
+        case "Vehicles":
+            networkDataFetcher.fetchVehicleArray(urlString: url) { (vehicles) in
+                guard let vehiclesArray = vehicles else { return }
+                self.vehicles = vehiclesArray
+                self.tableView.reloadData()
+            }
+        case "Species":
+            networkDataFetcher.fetchSpeciesArray(urlString: url) { (species) in
+                guard let speciesArray = species else { return }
+                self.species = speciesArray
+                self.tableView.reloadData()
+            }
+        default:
+            print("No value")
+        }
+    }
 }
 
 // MARK: TABLE VIEW CONFIGURATION
