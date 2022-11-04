@@ -614,7 +614,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didMoveToFilms:" destination="PFv-IM-1xG" eventType="touchUpInside" id="Qfa-km-dvK"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="jkV-iV-Ls4"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="moveToFilms" id="ezi-X3-OS6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii7-Md-l7C">
@@ -633,6 +633,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didMoveToPeople:" destination="PFv-IM-1xG" eventType="touchUpInside" id="Idt-c8-KFe"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="moveToPeople" id="OTa-MT-TjR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lps-d6-x8e">
@@ -651,6 +652,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didMoveToLocations:" destination="PFv-IM-1xG" eventType="touchUpInside" id="G9F-Mb-n8s"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="moveToLocations" id="W6c-Tk-KaG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcr-jY-EZC">
@@ -669,6 +671,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didMoveToSpecies:" destination="PFv-IM-1xG" eventType="touchUpInside" id="RaY-Ny-dhd"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="moveToSpecies" id="G4S-H2-jFv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z46-7k-rsT">
@@ -687,6 +690,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didMoveToVehicles:" destination="PFv-IM-1xG" eventType="touchUpInside" id="e3R-xe-Y4j"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="moveToVehicles" id="MBE-hW-d5d"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -711,6 +715,9 @@
             <point key="canvasLocation" x="33" y="-40"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MBE-hW-d5d"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

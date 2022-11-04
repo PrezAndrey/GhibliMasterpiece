@@ -23,7 +23,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView(data: "Locations", url: "https://ghibliapi.herokuapp.com/locations/")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
