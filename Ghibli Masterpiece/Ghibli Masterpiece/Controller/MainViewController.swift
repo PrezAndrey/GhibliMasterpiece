@@ -26,13 +26,32 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "details" {
-            if let detailVC = segue.destination as? DetailViewController {
-                if let indexPath = self.tableView.indexPathForSelectedRow {
-                    guard let currentFilm = films?[indexPath.row] else { return }
-                    detailVC.film = currentFilm
-                }
-            }
+        guard let detailVC = segue.destination as? DetailViewController else { return }
+        guard let chosenIndexPath = tableView.indexPathForSelectedRow?.row else { return }
+        switch currentValue {
+        case "Locations":
+            guard let location = locations else { return }
+//            detailVC.configureUI(with: location[chosenIndexPath])
+            detailVC.location = location[chosenIndexPath]
+            detailVC.currentValue = "l"
+        case "Films":
+            guard let film = films else { return }
+            detailVC.film = film[chosenIndexPath]
+            detailVC.currentValue = "f"
+        case "People":
+            guard let people = people else { return }
+            detailVC.people1 = people[chosenIndexPath]
+            detailVC.currentValue = "p"
+        case "Vehicles":
+            guard let vehicle = vehicles else { return }
+            detailVC.vehicle = vehicle[chosenIndexPath]
+            detailVC.currentValue = "v"
+        case "Species":
+            guard let species = species else { return }
+            detailVC.species1 = species[chosenIndexPath]
+            detailVC.currentValue = "s"
+        default:
+            print("No value")
         }
     }
     

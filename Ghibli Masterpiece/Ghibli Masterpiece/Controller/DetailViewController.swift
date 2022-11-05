@@ -10,7 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var currentValue: String?
     var film: Film?
+    var location: Location?
+    var people1: People?
+    var species1: Species?
+    var vehicle: Vehicle?
+
     let networkDataFetcher = NetworkDataFetcher()
     var people = [People]()
     var species = [Species]()
@@ -50,7 +56,20 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI(with: film)
+        switch currentValue {
+        case "f":
+            configureUI(with: film)
+        case "l":
+            configureUI(with: location)
+        case "p":
+            configureUI(with: people1)
+        case "s":
+            configureUI(with: species1)
+        case "v":
+            configureUI(with: vehicle)
+        default:
+            print("Error")
+        }
     }
     
 // MARK: Configuration functions
