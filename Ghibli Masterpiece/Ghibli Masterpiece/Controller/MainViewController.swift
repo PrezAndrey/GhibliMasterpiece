@@ -62,24 +62,29 @@ class MainViewController: UIViewController {
             networkDataFetcher.fetchLocationArray(urlString: url) { (locations) in
                 guard let locationsArray = locations else { return }
                 self.locations = locationsArray
+                self.navigationItem.title = "Locations"
                 self.tableView.reloadData()
             }
         case "Films":
             networkDataFetcher.fetchFilmArray(urlString: url) { (result) in
                 guard let result = result else { return }
                 self.films = result
+                self.navigationItem.title = "Films"
                 self.tableView.reloadData()
             }
         case "People":
             networkDataFetcher.fetchPeopleArray(urlString: url) { (people) in
                 guard let peopleArray = people else { return }
                 self.people = peopleArray
+                print("Array: \(peopleArray)")
+                self.navigationItem.title = "People"
                 self.tableView.reloadData()
             }
         case "Vehicles":
             networkDataFetcher.fetchVehicleArray(urlString: url) { (vehicles) in
                 guard let vehiclesArray = vehicles else { return }
                 self.vehicles = vehiclesArray
+                self.navigationItem.title = "Vehicles"
                 self.tableView.reloadData()
             }
         case "Species":
@@ -87,10 +92,24 @@ class MainViewController: UIViewController {
                 guard let speciesArray = species else { return }
                 self.species = speciesArray
                 self.tableView.reloadData()
+                self.navigationItem.title = "Species"
             }
         default:
             print("No value")
         }
+    }
+    
+    func configureImage(_ str: String?) -> UIImage {
+        var image = UIImage(named: "noImage")!
+        guard let str = str,
+              let url = URL(string: str)
+        else { return image }
+        
+        
+        if let data = try? Data(contentsOf: url) {
+            image = UIImage(data: data) ?? image
+        }
+        return image
     }
 }
 

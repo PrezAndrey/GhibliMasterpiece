@@ -30,7 +30,7 @@ class LibraryViewController: UIViewController {
         case "moveToFilms":
             mainVC.configureTableView(data: "Films", url: "https://ghibliapi.herokuapp.com/films/")
         case "moveToPeople":
-            mainVC.configureTableView(data: "Pople", url: "https://ghibliapi.herokuapp.com/people/")
+            mainVC.configureTableView(data: "People", url: "https://ghibliapi.herokuapp.com/people/")
         case "moveToLocations":
             mainVC.configureTableView(data: "Locations", url: "https://ghibliapi.herokuapp.com/locations/")
         case "moveToSpecies":
