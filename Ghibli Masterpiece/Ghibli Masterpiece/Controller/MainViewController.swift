@@ -168,11 +168,7 @@ extension MainViewController: UITableViewDataSource {
             cell.filmName.text = currentFilm.title
             cell.directorLable.text = currentFilm.director
             cell.originalName.text = currentFilm.original_title
-            guard let imageString = currentFilm.image,
-                let imageUrl = URL(string: imageString) else { return cell }
-            if let imageData = try? Data(contentsOf: imageUrl) {
-                cell.filmImage.image = UIImage(data: imageData)
-            }
+            cell.configureImage(imageStr: currentFilm.image)
         case "People":
             guard let currentPeople = people?[indexPath.row] else { return cell }
             cell.filmName.text = currentPeople.name
