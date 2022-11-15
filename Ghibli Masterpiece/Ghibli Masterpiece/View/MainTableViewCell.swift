@@ -11,6 +11,7 @@ class MainTableViewCell: UITableViewCell {
 
     
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var originalName: UILabel!
     @IBOutlet weak var filmName: UILabel!
     @IBOutlet weak var directorLable: UILabel!
@@ -21,6 +22,7 @@ class MainTableViewCell: UITableViewCell {
     }
     
     func configureImage(imageStr: String?) {
+        indicator.startAnimating()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             if let string = imageStr,
                let url = URL(string: string),
@@ -28,6 +30,7 @@ class MainTableViewCell: UITableViewCell {
                let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self?.filmImage.image = image
+                    self?.indicator.stopAnimating()
                 }
             }
         }

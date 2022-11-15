@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jom-yZ-HqA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jom-yZ-HqA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,7 +24,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="85" id="GL4-nc-Dmb" customClass="MainTableViewCell" customModule="Ghibli_Masterpiece" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="85"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GL4-nc-Dmb" id="P3e-VY-bzf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
@@ -73,12 +74,18 @@
                                                         <constraint firstItem="cwy-Pc-glr" firstAttribute="top" secondItem="4eV-vC-Jqx" secondAttribute="bottom" constant="5" id="xhp-PL-DS6"/>
                                                     </constraints>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LH5-Cy-qxY">
+                                                    <rect key="frame" x="28" y="23.5" width="37" height="37"/>
+                                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="LH5-Cy-qxY" firstAttribute="centerX" secondItem="qf2-7w-j2I" secondAttribute="centerX" id="0rv-mp-EHr"/>
                                                 <constraint firstAttribute="bottom" secondItem="j1v-Bw-9f5" secondAttribute="bottom" constant="11.5" id="2FJ-yD-d3k"/>
                                                 <constraint firstItem="qf2-7w-j2I" firstAttribute="centerY" secondItem="j1v-Bw-9f5" secondAttribute="centerY" id="7Pj-yR-mhD"/>
                                                 <constraint firstAttribute="trailing" secondItem="j1v-Bw-9f5" secondAttribute="trailing" constant="8" id="8kS-rg-vyQ"/>
                                                 <constraint firstItem="qf2-7w-j2I" firstAttribute="top" secondItem="P3e-VY-bzf" secondAttribute="top" id="Dtz-Bo-eyL"/>
+                                                <constraint firstItem="LH5-Cy-qxY" firstAttribute="centerY" secondItem="qf2-7w-j2I" secondAttribute="centerY" id="LD1-Hl-vwb"/>
                                                 <constraint firstItem="j1v-Bw-9f5" firstAttribute="top" secondItem="P3e-VY-bzf" secondAttribute="top" constant="10" id="qCn-gV-0fb"/>
                                                 <constraint firstItem="j1v-Bw-9f5" firstAttribute="leading" secondItem="qf2-7w-j2I" secondAttribute="trailing" constant="51" id="sO5-Nt-AMk"/>
                                             </constraints>
@@ -87,6 +94,7 @@
                                             <outlet property="directorLable" destination="mJM-3j-gBr" id="zFS-ZA-lO5"/>
                                             <outlet property="filmImage" destination="qf2-7w-j2I" id="dAt-NH-62l"/>
                                             <outlet property="filmName" destination="4eV-vC-Jqx" id="jeI-65-cq1"/>
+                                            <outlet property="indicator" destination="LH5-Cy-qxY" id="m1S-GO-uOs"/>
                                             <outlet property="originalName" destination="cwy-Pc-glr" id="vdo-Wg-YaE"/>
                                         </connections>
                                     </tableViewCell>
@@ -119,10 +127,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jm-3q-vyf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1612"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="1608"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-na-Gid" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1608"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-QF-u9p" userLabel="MainStackView">
                                                 <rect key="frame" x="8" y="8" width="398" height="1575.5"/>
@@ -575,7 +583,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jom-yZ-HqA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fio-F3-Egh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -596,7 +604,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-Mb-9xX">
-                                <rect key="frame" x="20" y="188" width="374" height="600"/>
+                                <rect key="frame" x="20" y="192" width="374" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evE-4u-iPg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -716,7 +724,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MBE-hW-d5d"/>
+        <segue reference="OTa-MT-TjR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -79,7 +79,7 @@ class DetailViewController: UIViewController {
             fillUpPeopleList(urls: film.people!)
             fillUpLocationList(urls: film.locations!)
             fillUpVehicleList(urls: film.vehicles!)
-            imageView.image = configureImage(film.movie_banner)
+            configureImage(film.movie_banner)
             
             configureTitleLabels(first: "Director:", second: "Producer:", third: "Release date:", fourth: "Description:")
             configureLabels(first: film.director!, second: film.producer!, third: film.release_date!, fourth: film.description!)
@@ -101,7 +101,7 @@ class DetailViewController: UIViewController {
             navigationItem.title = people.name
         }
         blockIsHidden(people: true, films: false, locations: true, species: false, vehicles: true, lastLabel: false)
-        imageView.image = configureImage(nil)
+        configureImage(nil)
     }
     
     func configureUI(with species: Species?) {
@@ -115,7 +115,7 @@ class DetailViewController: UIViewController {
             navigationItem.title = species.name
         }
         blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: true)
-        imageView.image = configureImage(nil)
+        configureImage(nil)
     }
     
     func configureUI(with location: Location?) {
@@ -129,7 +129,7 @@ class DetailViewController: UIViewController {
             navigationItem.title = location.name
         }
         blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: false)
-        imageView.image = configureImage(nil)
+        configureImage(nil)
     }
     
     func configureUI(with vehicle: Vehicle?) {
@@ -143,20 +143,23 @@ class DetailViewController: UIViewController {
             navigationItem.title = vehicle.name
         }
         blockIsHidden(people: false, films: false, locations: true, species: true, vehicles: true, lastLabel: true)
-        imageView.image = configureImage(nil)
+        configureImage(nil)
     }
     
-    func configureImage(_ str: String?) -> UIImage {
-        var image = UIImage(named: "noImage")!
-        guard let str = str,
-              let url = URL(string: str)
-        else { return image }
-        
-        
-        if let data = try? Data(contentsOf: url) {
-            image = UIImage(data: data) ?? image
+    func configureImage(_ str: String?) {
+        let defaultImage = UIImage(named: "noImage")
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            if let imageStr = str,
+               let url = URL(string: imageStr),
+               let data = try? Data(contentsOf: url),
+               let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+            } else {
+                self?.imageView.image = defaultImage
+            }
         }
-        return image
     }
     
     func blockIsHidden(people: Bool, films: Bool, locations: Bool, species: Bool, vehicles: Bool, lastLabel: Bool) {
