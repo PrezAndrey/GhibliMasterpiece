@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleLabelOne: UILabel!
@@ -147,6 +148,7 @@ class DetailViewController: UIViewController {
     }
     
     func configureImage(_ str: String?) {
+        indicator.startAnimating()
         let defaultImage = UIImage(named: "noImage")
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             if let imageStr = str,
@@ -155,9 +157,13 @@ class DetailViewController: UIViewController {
                let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self?.imageView.image = image
+                    self?.indicator.stopAnimating()
                 }
             } else {
-                self?.imageView.image = defaultImage
+                DispatchQueue.main.async {
+                    self?.imageView.image = defaultImage
+                    self?.indicator.stopAnimating()
+                }
             }
         }
     }

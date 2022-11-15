@@ -31,7 +31,6 @@ class MainViewController: UIViewController {
         switch currentValue {
         case "Locations":
             guard let location = locations else { return }
-//            detailVC.configureUI(with: location[chosenIndexPath])
             detailVC.location = location[chosenIndexPath]
             detailVC.currentValue = "l"
         case "Films":
@@ -97,19 +96,6 @@ class MainViewController: UIViewController {
         default:
             print("No value")
         }
-    }
-    
-    func configureImage(_ str: String?) -> UIImage {
-        var image = UIImage(named: "noImage")!
-        guard let str = str,
-              let url = URL(string: str)
-        else { return image }
-        
-        
-        if let data = try? Data(contentsOf: url) {
-            image = UIImage(data: data) ?? image
-        }
-        return image
     }
 }
 
