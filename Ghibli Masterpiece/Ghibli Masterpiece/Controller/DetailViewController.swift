@@ -11,11 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var currentValue: String?
+    var state: String?
     var film: Film?
     var location: Location?
     var people1: People?
     var species1: Species?
     var vehicle: Vehicle?
+    
 
     let networkDataFetcher = NetworkDataFetcher()
     var people = [People]()
@@ -148,13 +150,15 @@ class DetailViewController: UIViewController {
     }
     
     func configureImage(_ str: String?) {
+        self.state = str
         indicator.startAnimating()
         let defaultImage = UIImage(named: "noImage")
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             if let imageStr = str,
                let url = URL(string: imageStr),
                let data = try? Data(contentsOf: url),
-               let image = UIImage(data: data) {
+               let image = UIImage(data: data),
+               str == self?.state {
                 DispatchQueue.main.async {
                     self?.imageView.image = image
                     self?.indicator.stopAnimating()
