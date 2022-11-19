@@ -148,7 +148,7 @@ extension MainViewController: UITableViewDataSource {
             cell.filmName.text = currentLocation.name
             cell.directorLable.text = currentLocation.terrain
             cell.originalName.text = currentLocation.climate
-            cell.filmImage.image = UIImage(named: "noImage")
+            cell.configureImage(imageStr: nil)
         case "Films":
             guard let currentFilm = films?[indexPath.row] else { return cell }
             cell.filmName.text = currentFilm.title
@@ -160,19 +160,19 @@ extension MainViewController: UITableViewDataSource {
             cell.filmName.text = currentPeople.name
             cell.directorLable.text = currentPeople.species
             cell.originalName.text = currentPeople.gender
-            cell.filmImage.image = UIImage(named: "noImage")
+            cell.configureImage(imageStr: nil)
         case "Vehicles":
             guard let currentVehicle = vehicles?[indexPath.row] else { return cell }
             cell.filmName.text = currentVehicle.name
             cell.directorLable.text = currentVehicle.vehicle_class
             cell.originalName.text = currentVehicle.pilot
-            cell.filmImage.image = UIImage(named: "noImage")
+            cell.configureImage(imageStr: nil)
         case "Species":
             guard let currentSpecies = species?[indexPath.row] else { return cell }
             cell.filmName.text = currentSpecies.name
             cell.directorLable.text = currentSpecies.classification
             cell.originalName.text =  ""
-            cell.filmImage.image = UIImage(named: "noImage")
+            cell.configureImage(imageStr: nil)
         default:
             print("No value")
         }
